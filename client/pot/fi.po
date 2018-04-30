@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Giovanni Pellerano <giovanni.pellerano@evilaliv3.org>, 2015-2017
+# Giovanni Pellerano <giovanni.pellerano@evilaliv3.org>, 2015-2018
 # Jaakko Korhonen <jaakko.korhonen@gmail.com>, 2018
 # John Wild <ac@elephantleague.org>, 2015
 # Jorma Karvonen <karvonen.jorma@gmail.com>, 2015,2017
@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GlobaLeaks\n"
-"PO-Revision-Date: 2018-03-11 17:54+0000\n"
-"Last-Translator: Steve Dougherty\n"
+"PO-Revision-Date: 2018-04-08 11:12+0000\n"
+"Last-Translator: Hermes Center <info@hermescenter.org>\n"
 "Language-Team: Finnish (http://www.transifex.com/otf/globaleaks/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -204,9 +204,6 @@ msgstr "Vie"
 msgid "Save all"
 msgstr "Tallenna kaikki"
 
-msgid "This field is mandatory"
-msgstr "Tämä kenttä on pakollinen"
-
 msgid ""
 "The connection used to send this submission has been secured with HTTPS "
 "ensuring confidentiality."
@@ -279,6 +276,9 @@ msgstr "Etunimi"
 
 msgid "Last name"
 msgstr "Sukunimi"
+
+msgid "Gender"
+msgstr "Sukupuoli"
 
 msgid "GENDER_OTHER"
 msgstr ""
@@ -713,6 +713,15 @@ msgstr ""
 msgid "Select"
 msgstr "Valitse"
 
+msgid "Selected by default"
+msgstr ""
+
+msgid "Unselected by default"
+msgstr ""
+
+msgid "Surname"
+msgstr ""
+
 msgid "Select the context of your submission:"
 msgstr ""
 
@@ -790,12 +799,6 @@ msgstr ""
 msgid "Enable search engines indexing"
 msgstr "Ota käyttöön hakukoneiden indeksointi"
 
-msgid "Enabled"
-msgstr "Käyttöönotettu"
-
-msgid "Search engine spiders will be allowed to index the application."
-msgstr "Hakukoneiden hakuohjelmien sallitaan tutkia sovellus."
-
 msgid "Enable custom privacy panel"
 msgstr "Ota käyttöön oma yksityisyyskulkukortti"
 
@@ -808,14 +811,14 @@ msgstr "Näytettävä teksti, kun ilmiantaja ei käytä Tor-verkkoa"
 msgid "Disable the privacy panel"
 msgstr "Ota pois käytöstä yksityisyyskulkukortti"
 
-msgid "Security awareness panel title"
+msgid "Enable disclaimer"
 msgstr ""
 
-msgid "Security awareness panel text"
-msgstr ""
+msgid "Title"
+msgstr "Otsikko"
 
-msgid "Disable the security awareness panel questions"
-msgstr "Ota pois käytöstä turvallisuuspaneelin kysymykset"
+msgid "Text"
+msgstr "Teksti"
 
 msgid "Disable the security awareness panel"
 msgstr "Ota pois käytöstä turvallisuuspaneeli"
@@ -857,9 +860,6 @@ msgstr "Lähetyssivu"
 msgid "Title of the submission page"
 msgstr ""
 
-msgid "Title of the attachments widget"
-msgstr ""
-
 msgid "Text of prompt for whistleblowers to log in"
 msgstr ""
 
@@ -870,12 +870,6 @@ msgid "Title of the receipt page"
 msgstr ""
 
 msgid "Title of the submission status page"
-msgstr ""
-
-msgid "Title of the comments widget"
-msgstr ""
-
-msgid "Title of the messages widget"
 msgstr ""
 
 msgid "Size limit for file attachments"
@@ -900,12 +894,6 @@ msgstr "Käyttäjätunnus"
 
 msgid "Password"
 msgstr "Salasana"
-
-msgid ""
-"This feature keeps regular people from visiting the platform while it is "
-"still under development and should not be used for security purposes. The "
-"input password is stored in plaintext on the server."
-msgstr ""
 
 msgid "Enable experimental features"
 msgstr ""
@@ -1003,6 +991,9 @@ msgstr "Muokkaa"
 msgid "Cancel"
 msgstr "Peru"
 
+msgid "This field is mandatory"
+msgstr "Tämä kenttä on pakollinen"
+
 msgid "Questionnaire"
 msgstr ""
 
@@ -1058,6 +1049,9 @@ msgstr ""
 
 msgid "Disabled"
 msgstr "Otettu pois käytöstä"
+
+msgid "Enabled"
+msgstr "Käyttöönotettu"
 
 msgid "Submission expiration, in days"
 msgstr ""
@@ -1445,6 +1439,9 @@ msgstr ""
 msgid "Body of the confirmation question upon negative answer"
 msgstr ""
 
+msgid "Text of the final statement upon negative answer"
+msgstr ""
+
 msgid "Options"
 msgstr "Valitsimet"
 
@@ -1632,18 +1629,6 @@ msgstr ""
 msgid "Are you sure that you wish to continue?"
 msgstr "Oletko varma, että haluat jatkaa?"
 
-msgid ""
-"Downloading a file with malicious content could compromise your computer or "
-"disclose your identity."
-msgstr ""
-
-msgid "The name of the file and its content can be intentionally misleading."
-msgstr ""
-
-msgid ""
-"Please review the following information and decide if you wish to proceed."
-msgstr ""
-
 msgid "Error!"
 msgstr "Virhe!"
 
@@ -1711,28 +1696,6 @@ msgstr "sekuntia"
 msgid "Size:"
 msgstr "Koko:"
 
-msgid "Which of the following statements is true?"
-msgstr "Mitkä seuraavista väittämistä ovat tosia?"
-
-msgid "HTTPS protects my identity, but not the content of my submission"
-msgstr ""
-
-msgid "HTTPS protects the content of my submission but not my identity"
-msgstr ""
-
-msgid "HTTPS does not protect the content of my submission nor my identity"
-msgstr ""
-
-msgid "HTTPS does protect both my identity and the content of my submission"
-msgstr ""
-
-msgid ""
-"You are aware of the risks involved. Go ahead, but consider yourself warned."
-msgstr "Ymmärrän riskit. Voit edetä, mutta huomioi varoitukset."
-
-msgid "Wrong Answer!"
-msgstr "Väärä vastaus!"
-
 msgid "The connection is not secure."
 msgstr ""
 
@@ -1752,9 +1715,6 @@ msgstr "Tiedostonimi"
 
 msgid "Upload date"
 msgstr "Latauspäivä"
-
-msgid "Content Type"
-msgstr "Sisältötyyppi"
 
 msgid "File size"
 msgstr "Tiedostokoko"
@@ -1928,6 +1888,9 @@ msgstr ""
 msgid "Date of the request"
 msgstr ""
 
+msgid "Undeclared"
+msgstr ""
+
 msgid "Congratulations!"
 msgstr "Onneksi olkoon!"
 
@@ -1955,7 +1918,7 @@ msgstr ""
 msgid "Domain"
 msgstr "Verkkotunnus"
 
-msgid "Use Case"
+msgid "Use case"
 msgstr ""
 
 msgid "Anticorruption"
@@ -1982,9 +1945,6 @@ msgstr ""
 msgid "Check your inbox to activate your account."
 msgstr ""
 
-msgid "The answer is too short."
-msgstr ""
-
 msgid "The specified input is not valid:"
 msgstr ""
 
@@ -1992,6 +1952,12 @@ msgid "please enter a valid email address."
 msgstr ""
 
 msgid "please enter numbers only."
+msgstr ""
+
+msgid "This field is mandatory."
+msgstr "Tämä kenttä on pakollinen."
+
+msgid "The answer is too short."
 msgstr ""
 
 msgid "Recipient selection"
@@ -2078,11 +2044,17 @@ msgstr ""
 msgid "Attach files relevant to the submission."
 msgstr ""
 
+msgid "Do you want to provide your identification information?"
+msgstr ""
+
 msgid "Dear {RecipientName},"
 msgstr "Hyvä {RecipientName},"
 
 msgid "Kind regards,"
 msgstr "Ystävälliset terveiset,"
+
+msgid "Access instructions"
+msgstr ""
 
 msgid ""
 "The number of activities recently detected appears to be higher than usual."
@@ -2135,6 +2107,27 @@ msgstr "Järjestelmä ei kykene lähettämään salakirjoitettuja ilmoituksia il
 
 msgid "PGP key expiration alert"
 msgstr "PGP-avaimen vanhenemishälytys"
+
+msgid "A new whistleblowing site has been registered."
+msgstr ""
+
+msgid "Registration data:"
+msgstr ""
+
+msgid "Site: {HTTPSUrl} "
+msgstr ""
+
+msgid "Name: {Name}"
+msgstr ""
+
+msgid "Email: {Email}"
+msgstr ""
+
+msgid "Use case: {UseCase}"
+msgstr ""
+
+msgid "New whistleblowing site registered"
+msgstr ""
 
 msgid ""
 "This is a test email sent out from the platform's administrative interface."
@@ -2285,6 +2278,9 @@ msgid "Notifications from {NodeName} have been temporarily suspended"
 msgstr ""
 
 msgid "Click the link to activate the platform:"
+msgstr ""
+
+msgid "Activation"
 msgstr ""
 
 msgid "A software update is available."

@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GlobaLeaks\n"
-"PO-Revision-Date: 2018-03-11 17:54+0000\n"
+"PO-Revision-Date: 2018-04-08 11:12+0000\n"
 "Last-Translator: Hermes Center <info@hermescenter.org>\n"
 "Language-Team: Croatian (Croatia) (http://www.transifex.com/otf/globaleaks/language/hr_HR/)\n"
 "MIME-Version: 1.0\n"
@@ -203,9 +203,6 @@ msgstr "Izvezi"
 msgid "Save all"
 msgstr "Spremi sve"
 
-msgid "This field is mandatory"
-msgstr "Ovo polje je obavezno"
-
 msgid ""
 "The connection used to send this submission has been secured with HTTPS "
 "ensuring confidentiality."
@@ -278,6 +275,9 @@ msgstr "Ime"
 
 msgid "Last name"
 msgstr "Prezime"
+
+msgid "Gender"
+msgstr "Spol"
 
 msgid "GENDER_OTHER"
 msgstr "SPOL_DRUGO"
@@ -712,6 +712,15 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
+msgid "Selected by default"
+msgstr ""
+
+msgid "Unselected by default"
+msgstr ""
+
+msgid "Surname"
+msgstr ""
+
 msgid "Select the context of your submission:"
 msgstr "Odaberite kontekst svoje predaje:"
 
@@ -789,12 +798,6 @@ msgstr "Dozvoli primateljima da daju dopuštenja zviždačima na određenim pred
 msgid "Enable search engines indexing"
 msgstr "Omogući indeksiranje tražilica"
 
-msgid "Enabled"
-msgstr "Omogućeno"
-
-msgid "Search engine spiders will be allowed to index the application."
-msgstr "Paucima tražilica će biti dozvoljeno da indeksiraju aplikaciju."
-
 msgid "Enable custom privacy panel"
 msgstr "Omogući prilagođenu ploču privatnosti"
 
@@ -807,14 +810,14 @@ msgstr "Tekst prikazan kad zviždač ne koristi Tor"
 msgid "Disable the privacy panel"
 msgstr "Onemogući ploču privatnosti"
 
-msgid "Security awareness panel title"
-msgstr "Naslov ploče sigurnosne svjesnosti"
+msgid "Enable disclaimer"
+msgstr ""
 
-msgid "Security awareness panel text"
-msgstr "Tekst ploče sigurnosne svjesnosti"
+msgid "Title"
+msgstr "Naziv"
 
-msgid "Disable the security awareness panel questions"
-msgstr "Onemogući pitanja o ploči sigurnosne svjesnosti"
+msgid "Text"
+msgstr "Tekst"
 
 msgid "Disable the security awareness panel"
 msgstr "Onemogući ploču sigurnosne svjesnosti"
@@ -856,9 +859,6 @@ msgstr "Stranica za prijave"
 msgid "Title of the submission page"
 msgstr "Naziv stranice za predaje"
 
-msgid "Title of the attachments widget"
-msgstr "Naziv widget-a za privitke"
-
 msgid "Text of prompt for whistleblowers to log in"
 msgstr "Tekst upita za zviždačevu prijavu u sustav"
 
@@ -870,12 +870,6 @@ msgstr "Naziv stranice za potvrde"
 
 msgid "Title of the submission status page"
 msgstr "Naziv stranice za status predaja"
-
-msgid "Title of the comments widget"
-msgstr "Naziv widget-a za komentare"
-
-msgid "Title of the messages widget"
-msgstr "Naziv widget-a za poruke"
 
 msgid "Size limit for file attachments"
 msgstr "Ograničenje veličine privitaka"
@@ -899,12 +893,6 @@ msgstr "Korisničko ime"
 
 msgid "Password"
 msgstr "Lozinka"
-
-msgid ""
-"This feature keeps regular people from visiting the platform while it is "
-"still under development and should not be used for security purposes. The "
-"input password is stored in plaintext on the server."
-msgstr "Ova značajka sprječava obične ljude da posjećuju platformu dok je ista pod razvojem i ne bi trebala biti korištena iz sigurnosnih razloga. Unešena lozinka je spremljena na poslužitelju u nezaštićenom formatu."
 
 msgid "Enable experimental features"
 msgstr "Omogući eksperimentalne značajke"
@@ -1002,6 +990,9 @@ msgstr "Uredi"
 msgid "Cancel"
 msgstr "Otkaži"
 
+msgid "This field is mandatory"
+msgstr "Ovo polje je obavezno"
+
 msgid "Questionnaire"
 msgstr "Upitnik"
 
@@ -1057,6 +1048,9 @@ msgstr ""
 
 msgid "Disabled"
 msgstr "Onemogućeno"
+
+msgid "Enabled"
+msgstr "Omogućeno"
 
 msgid "Submission expiration, in days"
 msgstr "Istek predaje, u danima"
@@ -1444,6 +1438,9 @@ msgstr "Naslov pitanja potvrde na negativan odgovor"
 msgid "Body of the confirmation question upon negative answer"
 msgstr "Poruka pitanja potvrde na negativan odgovor"
 
+msgid "Text of the final statement upon negative answer"
+msgstr ""
+
 msgid "Options"
 msgstr "Opcije"
 
@@ -1631,18 +1628,6 @@ msgstr "To znači da ako bi poslužitelj na kojem je pokrenuta platforma bio zap
 msgid "Are you sure that you wish to continue?"
 msgstr "Jeste li sigurni da želite nastaviti?"
 
-msgid ""
-"Downloading a file with malicious content could compromise your computer or "
-"disclose your identity."
-msgstr "Preuzimanje datoteke sa zlonamjernim sadržajem može ugroziti Vaše računalo i otkriti Vaš identitet."
-
-msgid "The name of the file and its content can be intentionally misleading."
-msgstr "Ime datoteke i njen sadržaj mogu namjerno biti varljivi."
-
-msgid ""
-"Please review the following information and decide if you wish to proceed."
-msgstr "Molimo pregledajte sljedeće informacije i odlučite želite li nastaviti."
-
 msgid "Error!"
 msgstr "Pogreška!"
 
@@ -1710,28 +1695,6 @@ msgstr "sekundi"
 msgid "Size:"
 msgstr ""
 
-msgid "Which of the following statements is true?"
-msgstr "Koja od sljedećih izjava je istinita?"
-
-msgid "HTTPS protects my identity, but not the content of my submission"
-msgstr "HTTPS štiti moj identitet, ali ne i sadržaj mojih predaja"
-
-msgid "HTTPS protects the content of my submission but not my identity"
-msgstr "HTTPS štiti sadržaj moje predaje, ali ne i moj identitet"
-
-msgid "HTTPS does not protect the content of my submission nor my identity"
-msgstr "HTTPS ne štiti sadržaj moje predaje niti moj identitet"
-
-msgid "HTTPS does protect both my identity and the content of my submission"
-msgstr "HTTPS štiti i moj identitet i sadržaj moje predaje"
-
-msgid ""
-"You are aware of the risks involved. Go ahead, but consider yourself warned."
-msgstr "Svjesni ste povezanih rizika. Nastavite dalje, smatrajte se upozorenima."
-
-msgid "Wrong Answer!"
-msgstr "Krivi odgovor!"
-
 msgid "The connection is not secure."
 msgstr ""
 
@@ -1751,9 +1714,6 @@ msgstr "Naziv datoteke"
 
 msgid "Upload date"
 msgstr "Datum postavljanja"
-
-msgid "Content Type"
-msgstr "Tip sadržaja"
 
 msgid "File size"
 msgstr "Veličina datoteke"
@@ -1927,6 +1887,9 @@ msgstr "Od skrbnika se zahtjevao pristup identitetu zviždača."
 msgid "Date of the request"
 msgstr "Datum zahtjeva"
 
+msgid "Undeclared"
+msgstr ""
+
 msgid "Congratulations!"
 msgstr "Čestitamo!"
 
@@ -1954,7 +1917,7 @@ msgstr ""
 msgid "Domain"
 msgstr "Domena"
 
-msgid "Use Case"
+msgid "Use case"
 msgstr ""
 
 msgid "Anticorruption"
@@ -1981,9 +1944,6 @@ msgstr ""
 msgid "Check your inbox to activate your account."
 msgstr ""
 
-msgid "The answer is too short."
-msgstr ""
-
 msgid "The specified input is not valid:"
 msgstr "Navedeni unos nije valjan:"
 
@@ -1992,6 +1952,12 @@ msgstr "molimo unesite valjanu email adresu."
 
 msgid "please enter numbers only."
 msgstr "molimo unesite samo brojeve."
+
+msgid "This field is mandatory."
+msgstr "Ovo polje je obavezno."
+
+msgid "The answer is too short."
+msgstr ""
 
 msgid "Recipient selection"
 msgstr "Odabir primatelja"
@@ -2077,11 +2043,17 @@ msgstr "Opišite svoju predaju detaljno"
 msgid "Attach files relevant to the submission."
 msgstr "Dodaj datoteke relevantne za prijavu"
 
+msgid "Do you want to provide your identification information?"
+msgstr "Želite li pružiti informacije o Vašoj identifikaciji?"
+
 msgid "Dear {RecipientName},"
 msgstr "Dragi/a {RecipientName},"
 
 msgid "Kind regards,"
 msgstr "S poštovanjem,"
+
+msgid "Access instructions"
+msgstr ""
 
 msgid ""
 "The number of activities recently detected appears to be higher than usual."
@@ -2134,6 +2106,27 @@ msgstr "Bez valjanog PGP ključa, ovaj sustav im neće moći slati enkriptirane 
 
 msgid "PGP key expiration alert"
 msgstr "Upozorenje o isteku PGP ključa"
+
+msgid "A new whistleblowing site has been registered."
+msgstr ""
+
+msgid "Registration data:"
+msgstr ""
+
+msgid "Site: {HTTPSUrl} "
+msgstr ""
+
+msgid "Name: {Name}"
+msgstr ""
+
+msgid "Email: {Email}"
+msgstr ""
+
+msgid "Use case: {UseCase}"
+msgstr ""
+
+msgid "New whistleblowing site registered"
+msgstr ""
 
 msgid ""
 "This is a test email sent out from the platform's administrative interface."
@@ -2284,6 +2277,9 @@ msgid "Notifications from {NodeName} have been temporarily suspended"
 msgstr "Obavijesti sa {NodeName} su privremeno suspendirane"
 
 msgid "Click the link to activate the platform:"
+msgstr ""
+
+msgid "Activation"
 msgstr ""
 
 msgid "A software update is available."

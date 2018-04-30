@@ -36,8 +36,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GlobaLeaks\n"
-"PO-Revision-Date: 2018-03-11 17:54+0000\n"
-"Last-Translator: blueboy\n"
+"PO-Revision-Date: 2018-04-10 09:40+0000\n"
+"Last-Translator: Flávio Veras <flaviove@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/otf/globaleaks/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -231,9 +231,6 @@ msgstr "Exportar"
 msgid "Save all"
 msgstr "Salvar tudo"
 
-msgid "This field is mandatory"
-msgstr "Este campo é obrigatório"
-
 msgid ""
 "The connection used to send this submission has been secured with HTTPS "
 "ensuring confidentiality."
@@ -306,6 +303,9 @@ msgstr "Primeiro nome"
 
 msgid "Last name"
 msgstr "Último nome"
+
+msgid "Gender"
+msgstr "Gênero"
 
 msgid "GENDER_OTHER"
 msgstr "Outro"
@@ -740,6 +740,15 @@ msgstr ""
 msgid "Select"
 msgstr "Selecionar"
 
+msgid "Selected by default"
+msgstr ""
+
+msgid "Unselected by default"
+msgstr ""
+
+msgid "Surname"
+msgstr ""
+
 msgid "Select the context of your submission:"
 msgstr "Selecionar o assunto do seu envio:"
 
@@ -817,12 +826,6 @@ msgstr "Permitir destinatários conceder permissões aos delatores em submissõe
 msgid "Enable search engines indexing"
 msgstr "Habilitar indexação aos motores de busca"
 
-msgid "Enabled"
-msgstr "Habilitado"
-
-msgid "Search engine spiders will be allowed to index the application."
-msgstr "Motores de busca serão autorizados a indexar o aplicativo."
-
 msgid "Enable custom privacy panel"
 msgstr "Habilitar painel personalizado de privacidade"
 
@@ -835,14 +838,14 @@ msgstr "Texto mostrado quando o denunciante não está usando Tor"
 msgid "Disable the privacy panel"
 msgstr "Desativar o painel de privacidade"
 
-msgid "Security awareness panel title"
-msgstr "Título do painel de conscientização de segurança"
+msgid "Enable disclaimer"
+msgstr ""
 
-msgid "Security awareness panel text"
-msgstr "Texto do painel de conscientização de segurança"
+msgid "Title"
+msgstr "Título"
 
-msgid "Disable the security awareness panel questions"
-msgstr "Desativar as perguntas do emblema de percepção de segurança"
+msgid "Text"
+msgstr "Texto"
 
 msgid "Disable the security awareness panel"
 msgstr "Desabilitar o emblema de percepção de seguança"
@@ -884,9 +887,6 @@ msgstr "Página de submissão"
 msgid "Title of the submission page"
 msgstr "Título da página de submissão"
 
-msgid "Title of the attachments widget"
-msgstr ""
-
 msgid "Text of prompt for whistleblowers to log in"
 msgstr "Texto de imediato para delatores entrarem"
 
@@ -898,12 +898,6 @@ msgstr "Título da página do recibo"
 
 msgid "Title of the submission status page"
 msgstr "Título da página de status de submissão"
-
-msgid "Title of the comments widget"
-msgstr ""
-
-msgid "Title of the messages widget"
-msgstr ""
 
 msgid "Size limit for file attachments"
 msgstr "Limite de tamanho para arquivos anexados"
@@ -927,12 +921,6 @@ msgstr "Usuário"
 
 msgid "Password"
 msgstr "Senha"
-
-msgid ""
-"This feature keeps regular people from visiting the platform while it is "
-"still under development and should not be used for security purposes. The "
-"input password is stored in plaintext on the server."
-msgstr "Esse recurso evita que as pessoas comuns visitem a plataforma enquanto ainda está em desenvolvimento e não deve se usado para fins de segurança. A senha de entrada é armazenada no servidor em texto claro."
 
 msgid "Enable experimental features"
 msgstr "Ativar características experimentais"
@@ -1030,6 +1018,9 @@ msgstr "Editar"
 msgid "Cancel"
 msgstr "Cancelar"
 
+msgid "This field is mandatory"
+msgstr "Este campo é obrigatório"
+
 msgid "Questionnaire"
 msgstr "Questionário"
 
@@ -1085,6 +1076,9 @@ msgstr ""
 
 msgid "Disabled"
 msgstr "Desabilitado"
+
+msgid "Enabled"
+msgstr "Habilitado"
 
 msgid "Submission expiration, in days"
 msgstr "Expiração de submissão, em dias"
@@ -1472,6 +1466,9 @@ msgstr "Título da pergunta de confirmação em consequência de resposta negati
 msgid "Body of the confirmation question upon negative answer"
 msgstr "Corpo da pergunta de confirmação em consequência de resposta negativa"
 
+msgid "Text of the final statement upon negative answer"
+msgstr ""
+
 msgid "Options"
 msgstr "Opções"
 
@@ -1659,18 +1656,6 @@ msgstr "Isso significa que, se o servidor que executa essa plataforma for apreen
 msgid "Are you sure that you wish to continue?"
 msgstr "Você tem certeza de que deseja continuar?"
 
-msgid ""
-"Downloading a file with malicious content could compromise your computer or "
-"disclose your identity."
-msgstr "Baixando um arquivo com conteúdo adulterado poderia comprometer seu computador ou descobrir a sua identidade."
-
-msgid "The name of the file and its content can be intentionally misleading."
-msgstr "O nome do arquivo e seu conteúdo podem ter sido intencionalmente adulterados."
-
-msgid ""
-"Please review the following information and decide if you wish to proceed."
-msgstr "Favor rever a seguinte informação e decidir se Você deseja prosseguir."
-
 msgid "Error!"
 msgstr "Erro!"
 
@@ -1738,28 +1723,6 @@ msgstr "segundos"
 msgid "Size:"
 msgstr "Tamanho:"
 
-msgid "Which of the following statements is true?"
-msgstr "Qual das seguintes afirmações é verdadeira?"
-
-msgid "HTTPS protects my identity, but not the content of my submission"
-msgstr "HTTPS protege a minha identidade, mas não o conteúdo da minha submissão"
-
-msgid "HTTPS protects the content of my submission but not my identity"
-msgstr "HTTPS protege o conteúdo da minha submissão mas não a minha identidade"
-
-msgid "HTTPS does not protect the content of my submission nor my identity"
-msgstr "HTTPS não protege o conteúdo da minha submissão e nem a minha identidade"
-
-msgid "HTTPS does protect both my identity and the content of my submission"
-msgstr "HTTPS protege tanto a minha identidade quanto o conteúdo da minha submissão"
-
-msgid ""
-"You are aware of the risks involved. Go ahead, but consider yourself warned."
-msgstr "Você está ciente dos riscos envolvidos, vá em frente, mas considere-se avisado."
-
-msgid "Wrong Answer!"
-msgstr "Resposta Errada!"
-
 msgid "The connection is not secure."
 msgstr ""
 
@@ -1779,9 +1742,6 @@ msgstr "Nome do Arquivo"
 
 msgid "Upload date"
 msgstr "Submeter Data"
-
-msgid "Content Type"
-msgstr "Tipo de Conteúdo"
 
 msgid "File size"
 msgstr "Tamanho do arquivo"
@@ -1955,6 +1915,9 @@ msgstr "Acesso à identidade de um delator foi solicitado ao curador."
 msgid "Date of the request"
 msgstr "Data do pedido"
 
+msgid "Undeclared"
+msgstr ""
+
 msgid "Congratulations!"
 msgstr "Parabéns!"
 
@@ -1982,7 +1945,7 @@ msgstr "Cadastrar"
 msgid "Domain"
 msgstr "Domínio"
 
-msgid "Use Case"
+msgid "Use case"
 msgstr ""
 
 msgid "Anticorruption"
@@ -2009,9 +1972,6 @@ msgstr ""
 msgid "Check your inbox to activate your account."
 msgstr ""
 
-msgid "The answer is too short."
-msgstr ""
-
 msgid "The specified input is not valid:"
 msgstr "A entrada especificada não é válida:"
 
@@ -2020,6 +1980,12 @@ msgstr "favor digitar um email válido"
 
 msgid "please enter numbers only."
 msgstr "favor digitar somente números"
+
+msgid "This field is mandatory."
+msgstr "Este campo é obrigatório."
+
+msgid "The answer is too short."
+msgstr ""
 
 msgid "Recipient selection"
 msgstr "Seleção de destinatário"
@@ -2105,11 +2071,17 @@ msgstr "Descrever o seu envio em detalhes."
 msgid "Attach files relevant to the submission."
 msgstr "Anexar arquivos relevantes para a submissão."
 
+msgid "Do you want to provide your identification information?"
+msgstr "Você deseja fornecer informações sobre a sua identidade?"
+
 msgid "Dear {RecipientName},"
 msgstr "Prezado/a {RecipientName},"
 
 msgid "Kind regards,"
 msgstr "Atenciosamente,"
+
+msgid "Access instructions"
+msgstr ""
 
 msgid ""
 "The number of activities recently detected appears to be higher than usual."
@@ -2162,6 +2134,27 @@ msgstr "Sem uma chave PGP válida, o sistema não será capaz de enviar-lhes not
 
 msgid "PGP key expiration alert"
 msgstr "Alerta de expiração de chave PGP"
+
+msgid "A new whistleblowing site has been registered."
+msgstr ""
+
+msgid "Registration data:"
+msgstr ""
+
+msgid "Site: {HTTPSUrl} "
+msgstr ""
+
+msgid "Name: {Name}"
+msgstr ""
+
+msgid "Email: {Email}"
+msgstr ""
+
+msgid "Use case: {UseCase}"
+msgstr ""
+
+msgid "New whistleblowing site registered"
+msgstr ""
 
 msgid ""
 "This is a test email sent out from the platform's administrative interface."
@@ -2312,6 +2305,9 @@ msgid "Notifications from {NodeName} have been temporarily suspended"
 msgstr "Notificações de {NodeName} foram suspensas temporariamente"
 
 msgid "Click the link to activate the platform:"
+msgstr ""
+
+msgid "Activation"
 msgstr ""
 
 msgid "A software update is available."

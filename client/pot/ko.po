@@ -1,11 +1,11 @@
 # 
 # Translators:
 # Changkyoon Kim <ocnblu@gmail.com>, 2015
-# Giovanni Pellerano <giovanni.pellerano@evilaliv3.org>, 2016-2017
+# Giovanni Pellerano <giovanni.pellerano@evilaliv3.org>, 2016-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: GlobaLeaks\n"
-"PO-Revision-Date: 2018-03-11 17:54+0000\n"
+"PO-Revision-Date: 2018-04-08 11:12+0000\n"
 "Last-Translator: Hermes Center <info@hermescenter.org>\n"
 "Language-Team: Korean (http://www.transifex.com/otf/globaleaks/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -200,9 +200,6 @@ msgstr "수출"
 msgid "Save all"
 msgstr "모든 저장"
 
-msgid "This field is mandatory"
-msgstr "이 필드는 필수입니다"
-
 msgid ""
 "The connection used to send this submission has been secured with HTTPS "
 "ensuring confidentiality."
@@ -275,6 +272,9 @@ msgstr "이름"
 
 msgid "Last name"
 msgstr "성"
+
+msgid "Gender"
+msgstr "성별"
 
 msgid "GENDER_OTHER"
 msgstr "GENDER_OTHER"
@@ -709,6 +709,15 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
+msgid "Selected by default"
+msgstr ""
+
+msgid "Unselected by default"
+msgstr ""
+
+msgid "Surname"
+msgstr ""
+
 msgid "Select the context of your submission:"
 msgstr "제출의 컨텍스트를 선택합니다 :"
 
@@ -786,12 +795,6 @@ msgstr "받는 사람이 특정 제출에 대한 내부 고발자에 대한 사�
 msgid "Enable search engines indexing"
 msgstr "검색 엔진의 색인을 사용하도록 설정"
 
-msgid "Enabled"
-msgstr "사용"
-
-msgid "Search engine spiders will be allowed to index the application."
-msgstr "검색 엔진 스파이더가 색인에 응용 프로그램을 허용됩니다."
-
 msgid "Enable custom privacy panel"
 msgstr "사용자의 개인 정보 보호 패널 사용"
 
@@ -804,14 +807,14 @@ msgstr "텍스트 고발자가 토르를 사용하지 않을 때 표시"
 msgid "Disable the privacy panel"
 msgstr "개인 정보 보호 패널을 사용하지 않도록 설정"
 
-msgid "Security awareness panel title"
-msgstr "보안 인식 패널 제목"
+msgid "Enable disclaimer"
+msgstr ""
 
-msgid "Security awareness panel text"
-msgstr "보안 인식 패널 텍스트"
+msgid "Title"
+msgstr "제목"
 
-msgid "Disable the security awareness panel questions"
-msgstr "보안 인식 패널 질문을 해제"
+msgid "Text"
+msgstr "텍스트"
 
 msgid "Disable the security awareness panel"
 msgstr "보안 인식 패널을 사용하지 않도록 설정"
@@ -853,9 +856,6 @@ msgstr "제출 페이지"
 msgid "Title of the submission page"
 msgstr "제출 페이지의 제목"
 
-msgid "Title of the attachments widget"
-msgstr "첨부 위젯의 제목"
-
 msgid "Text of prompt for whistleblowers to log in"
 msgstr ""
 
@@ -867,12 +867,6 @@ msgstr "영수증 페이지의 제목"
 
 msgid "Title of the submission status page"
 msgstr "제출 상태 페이지의 제목"
-
-msgid "Title of the comments widget"
-msgstr "코멘트 위젯의 제목"
-
-msgid "Title of the messages widget"
-msgstr "메시지 위젯의 제목"
 
 msgid "Size limit for file attachments"
 msgstr "첨부 파일에 대한 크기 제한"
@@ -896,12 +890,6 @@ msgstr "사용자 이름"
 
 msgid "Password"
 msgstr "암호"
-
-msgid ""
-"This feature keeps regular people from visiting the platform while it is "
-"still under development and should not be used for security purposes. The "
-"input password is stored in plaintext on the server."
-msgstr "이 기능은 아직 개발 및 보안 목적을 위해 사용되지 않아야하는 동안 플랫폼을 방문하는 일반 명을 유지한다. 입력 된 암호가 서버에 일반 텍스트로 저장됩니다."
 
 msgid "Enable experimental features"
 msgstr "실험 기능 사용"
@@ -999,6 +987,9 @@ msgstr "편집하다"
 msgid "Cancel"
 msgstr "취소"
 
+msgid "This field is mandatory"
+msgstr "이 필드는 필수입니다"
+
 msgid "Questionnaire"
 msgstr "질문 사항"
 
@@ -1054,6 +1045,9 @@ msgstr ""
 
 msgid "Disabled"
 msgstr "장애인"
+
+msgid "Enabled"
+msgstr "사용"
 
 msgid "Submission expiration, in days"
 msgstr "일 제출 만료,"
@@ -1441,6 +1435,9 @@ msgstr "부정적인 응답시 확인 질문의 제목"
 msgid "Body of the confirmation question upon negative answer"
 msgstr "부정적인 응답시 확인 질문의 몸"
 
+msgid "Text of the final statement upon negative answer"
+msgstr ""
+
 msgid "Options"
 msgstr "옵션"
 
@@ -1628,18 +1625,6 @@ msgstr "이 플랫폼을 실행하는 서버를 압수 할 수 있다면, 제출
 msgid "Are you sure that you wish to continue?"
 msgstr "당신은 당신이 계속하고자하는 것이 하시겠습니까?"
 
-msgid ""
-"Downloading a file with malicious content could compromise your computer or "
-"disclose your identity."
-msgstr ""
-
-msgid "The name of the file and its content can be intentionally misleading."
-msgstr ""
-
-msgid ""
-"Please review the following information and decide if you wish to proceed."
-msgstr ""
-
 msgid "Error!"
 msgstr "오류!"
 
@@ -1707,28 +1692,6 @@ msgstr "초"
 msgid "Size:"
 msgstr ""
 
-msgid "Which of the following statements is true?"
-msgstr "다음 설명 중 사실입니까?"
-
-msgid "HTTPS protects my identity, but not the content of my submission"
-msgstr ""
-
-msgid "HTTPS protects the content of my submission but not my identity"
-msgstr ""
-
-msgid "HTTPS does not protect the content of my submission nor my identity"
-msgstr ""
-
-msgid "HTTPS does protect both my identity and the content of my submission"
-msgstr ""
-
-msgid ""
-"You are aware of the risks involved. Go ahead, but consider yourself warned."
-msgstr "당신은 관련된 위험을 알고 있습니다. 어서,하지만 자신이 경고 고려하십시오."
-
-msgid "Wrong Answer!"
-msgstr "잘못된 답변!"
-
 msgid "The connection is not secure."
 msgstr ""
 
@@ -1748,9 +1711,6 @@ msgstr "파일 이름"
 
 msgid "Upload date"
 msgstr "업로드 날짜"
-
-msgid "Content Type"
-msgstr "콘텐츠 형식"
 
 msgid "File size"
 msgstr "파일 크기"
@@ -1924,6 +1884,9 @@ msgstr "고발자의 신원에 대한 액세스는 관리인에게 요청하고�
 msgid "Date of the request"
 msgstr "요청 일자"
 
+msgid "Undeclared"
+msgstr ""
+
 msgid "Congratulations!"
 msgstr "치하!"
 
@@ -1951,7 +1914,7 @@ msgstr "Sign up"
 msgid "Domain"
 msgstr "도메인"
 
-msgid "Use Case"
+msgid "Use case"
 msgstr ""
 
 msgid "Anticorruption"
@@ -1978,9 +1941,6 @@ msgstr ""
 msgid "Check your inbox to activate your account."
 msgstr ""
 
-msgid "The answer is too short."
-msgstr ""
-
 msgid "The specified input is not valid:"
 msgstr ""
 
@@ -1988,6 +1948,12 @@ msgid "please enter a valid email address."
 msgstr ""
 
 msgid "please enter numbers only."
+msgstr ""
+
+msgid "This field is mandatory."
+msgstr "이 필드는 필수입니다"
+
+msgid "The answer is too short."
 msgstr ""
 
 msgid "Recipient selection"
@@ -2074,11 +2040,17 @@ msgstr ""
 msgid "Attach files relevant to the submission."
 msgstr ""
 
+msgid "Do you want to provide your identification information?"
+msgstr "당신은 당신의 식별 정보를 제공 하시겠습니까?"
+
 msgid "Dear {RecipientName},"
 msgstr "친애 %의 {RecipientName} 를,"
 
 msgid "Kind regards,"
 msgstr "종류 안부,"
+
+msgid "Access instructions"
+msgstr ""
 
 msgid ""
 "The number of activities recently detected appears to be higher than usual."
@@ -2131,6 +2103,27 @@ msgstr "유효한 PGP 키가 없으면, 시스템은 그들에게 암호화 된 
 
 msgid "PGP key expiration alert"
 msgstr "PGP 키 만료 경고"
+
+msgid "A new whistleblowing site has been registered."
+msgstr ""
+
+msgid "Registration data:"
+msgstr ""
+
+msgid "Site: {HTTPSUrl} "
+msgstr ""
+
+msgid "Name: {Name}"
+msgstr ""
+
+msgid "Email: {Email}"
+msgstr ""
+
+msgid "Use case: {UseCase}"
+msgstr ""
+
+msgid "New whistleblowing site registered"
+msgstr ""
 
 msgid ""
 "This is a test email sent out from the platform's administrative interface."
@@ -2281,6 +2274,9 @@ msgid "Notifications from {NodeName} have been temporarily suspended"
 msgstr ""
 
 msgid "Click the link to activate the platform:"
+msgstr ""
+
+msgid "Activation"
 msgstr ""
 
 msgid "A software update is available."

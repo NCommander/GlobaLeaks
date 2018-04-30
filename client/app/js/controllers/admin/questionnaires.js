@@ -1,6 +1,6 @@
 GLClient.controller('AdminQuestionnaireCtrl',
-  ['$scope', '$http', 'Utils', 'AdminQuestionnaireResource',
-  function($scope, $http, Utils, AdminQuestionnaireResource){
+  ['$scope', '$http', '$route', 'Utils', 'AdminQuestionnaireResource',
+  function($scope, $http, $route, Utils, AdminQuestionnaireResource){
   $scope.tabs = [
     {
       title:"Questionnaires",
@@ -11,6 +11,8 @@ GLClient.controller('AdminQuestionnaireCtrl',
       template:"views/admin/questionnaires/questions.html"
     }
   ];
+
+  $scope.deleted_fields_ids = [];
 
   $scope.admin.get_field_attrs = function(type) {
     if (type in $scope.admin.field_attrs) {
@@ -37,9 +39,8 @@ GLClient.controller('AdminQuestionnaireCtrl',
         url: 'admin/questionnaires?multilang=1',
         data: txt,
       })
-    }).then(function(resp) {
-      var new_q = new AdminQuestionnaireResource(resp.data);
-      $scope.admin.questionnaires.push(new_q);
+    }).then(function() {
+       $route.reload();
     }, Utils.displayErrorMsg);
   };
 

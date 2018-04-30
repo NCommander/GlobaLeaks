@@ -29,7 +29,7 @@ angular.module('GLServices', ['ngResource']).
           self.session = {
             'id': response.session_id,
             'user_id': response.user_id,
-            'username': response.user_name,
+            'username': response.username,
             'role': response.role,
             'state': response.state,
             'password_change_needed': response.password_change_needed,
@@ -372,7 +372,7 @@ factory("Access", ["$q", "Authentication", function ($q, Authentication) {
 }]).
   factory('RTipDownloadRFile', ['$http', 'FileSaver', function($http, FileSaver) {
     return function(file) {
-      $http({
+      return $http({
         method: 'GET',
         url: 'rtip/rfile/' + file.id,
         responseType: 'blob',
@@ -476,7 +476,7 @@ factory("Access", ["$q", "Authentication", function ($q, Authentication) {
 }]).
   factory('WBTipDownloadFile', ['$http', 'FileSaver', function($http, FileSaver) {
     return function(file) {
-      $http({
+      return $http({
         method: 'GET',
         url: 'wbtip/wbfile/' + file.id,
         responseType: 'blob',
@@ -710,13 +710,6 @@ factory('AdminUtils', ['AdminContextResource', 'AdminQuestionnaireResource', 'Ad
       field.step_id = step_id;
       field.template_id = '';
       field.triggered_by_score = 0;
-      return field;
-    },
-
-    new_field_from_template: function(template_id, step_id, fieldgroup_id) {
-      var field = this.new_field(step_id, fieldgroup_id);
-      field.template_id = template_id;
-      field.instance = 'reference';
       return field;
     },
 

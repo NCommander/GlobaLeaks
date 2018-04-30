@@ -44,7 +44,7 @@
           </div>
         </div>
         <div class="form-group col-md-6">
-          <label data-translate>Use Case</label>
+          <label data-translate>Use case</label>
           <span class="text-danger" uib-popover="{{'This field is mandatory' | translate}}" popover-placement="right">*</span>
 	  <div data-ng-class="{'has-error': signupFormStep1.use_case.$error.required}">
             <select name="use_case" class="form-control" data-ng-model="signup.use_case" required>
@@ -59,7 +59,7 @@
         <div class="form-group col-md-6" data-ng-if="signup.use_case == 'other'">
           <label data-translate>Other</label>
           <span class="text-danger" uib-popover="{{'This field is mandatory' | translate}}" popover-placement="right">*</span>
-          <input name="user_case_other" class="form-control" data-ng-model="signup.usecase_other" type="text" data-ng-attr-placeholder="{{'Other' | translate}}" required>
+          <input name="use_case_other" class="form-control" data-ng-model="signup.use_case_other" type="text" data-ng-attr-placeholder="{{'Other' | translate}}" required>
         </div>
       </div>
     </div>

@@ -25,8 +25,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GlobaLeaks\n"
-"PO-Revision-Date: 2018-03-11 17:54+0000\n"
-"Last-Translator: Erdoğan Şahin\n"
+"PO-Revision-Date: 2018-04-08 11:12+0000\n"
+"Last-Translator: Hermes Center <info@hermescenter.org>\n"
 "Language-Team: Turkish (http://www.transifex.com/otf/globaleaks/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -220,9 +220,6 @@ msgstr "Dışarı aktar"
 msgid "Save all"
 msgstr "Tümünü kaydet"
 
-msgid "This field is mandatory"
-msgstr "Bu alan zorunludur"
-
 msgid ""
 "The connection used to send this submission has been secured with HTTPS "
 "ensuring confidentiality."
@@ -295,6 +292,9 @@ msgstr "İsim"
 
 msgid "Last name"
 msgstr "Soyisim"
+
+msgid "Gender"
+msgstr "Cinsiyet"
 
 msgid "GENDER_OTHER"
 msgstr "DİĞER"
@@ -729,6 +729,15 @@ msgstr ""
 msgid "Select"
 msgstr "Seç"
 
+msgid "Selected by default"
+msgstr ""
+
+msgid "Unselected by default"
+msgstr ""
+
+msgid "Surname"
+msgstr ""
+
 msgid "Select the context of your submission:"
 msgstr ""
 
@@ -806,12 +815,6 @@ msgstr "Belirli gönderimlerde alıcıların ihbarcılara yetki vermesine izin v
 msgid "Enable search engines indexing"
 msgstr "Arama motoru dizinlemeyi etkinleştir"
 
-msgid "Enabled"
-msgstr "Etkin"
-
-msgid "Search engine spiders will be allowed to index the application."
-msgstr "Arama motoru örümcekleri, uygulama içerisinde gezinebilecekler."
-
 msgid "Enable custom privacy panel"
 msgstr "Özel gizlilik panelini etkinleştir"
 
@@ -824,14 +827,14 @@ msgstr "İhbarcı Tor kullanmadığında gösterilecek metin"
 msgid "Disable the privacy panel"
 msgstr "Gizlilik rozetini devre dışı bırak"
 
-msgid "Security awareness panel title"
-msgstr "Güvenlik farkındalığı rozeti başlığı"
+msgid "Enable disclaimer"
+msgstr ""
 
-msgid "Security awareness panel text"
-msgstr "Güvenlik farkındalığı rozeti metni"
+msgid "Title"
+msgstr "Başlık"
 
-msgid "Disable the security awareness panel questions"
-msgstr "Güvenlik farkındalığı rozeti sorularını devre dışı bırak"
+msgid "Text"
+msgstr "Metin"
 
 msgid "Disable the security awareness panel"
 msgstr "Güvenlik farkındalığı rozetini devre dışı bırak"
@@ -873,9 +876,6 @@ msgstr "Gönderim sayfası"
 msgid "Title of the submission page"
 msgstr "Gönderim sayfası başlığı"
 
-msgid "Title of the attachments widget"
-msgstr "Dosya ekleme bileşeninin başlığı"
-
 msgid "Text of prompt for whistleblowers to log in"
 msgstr ""
 
@@ -887,12 +887,6 @@ msgstr "Alıcı sayfası başlığı"
 
 msgid "Title of the submission status page"
 msgstr "Gönderim durumu başlığı"
-
-msgid "Title of the comments widget"
-msgstr "Yorum bileşeninin başlığı"
-
-msgid "Title of the messages widget"
-msgstr "Mesaj bileşeninin başlığı"
 
 msgid "Size limit for file attachments"
 msgstr "Dosya ekleri için boyut sınırı"
@@ -916,12 +910,6 @@ msgstr "Kullanıcı Adı"
 
 msgid "Password"
 msgstr "Parola"
-
-msgid ""
-"This feature keeps regular people from visiting the platform while it is "
-"still under development and should not be used for security purposes. The "
-"input password is stored in plaintext on the server."
-msgstr ""
 
 msgid "Enable experimental features"
 msgstr "Deneysel özellikleri etkinleştir"
@@ -1019,6 +1007,9 @@ msgstr "Düzenle"
 msgid "Cancel"
 msgstr "İptal"
 
+msgid "This field is mandatory"
+msgstr "Bu alan zorunludur"
+
 msgid "Questionnaire"
 msgstr "Anket"
 
@@ -1074,6 +1065,9 @@ msgstr ""
 
 msgid "Disabled"
 msgstr "Devre Dışı"
+
+msgid "Enabled"
+msgstr "Etkin"
 
 msgid "Submission expiration, in days"
 msgstr "Gönderimin geçerlilik tarihi, gün cinsinden"
@@ -1461,6 +1455,9 @@ msgstr "Olumsuz yanıt verildiğinde gösterilecek onay penceresi başlığı"
 msgid "Body of the confirmation question upon negative answer"
 msgstr "Olumsuz yanıt verildiğinde gösterilecek onay penceresi içeriği"
 
+msgid "Text of the final statement upon negative answer"
+msgstr ""
+
 msgid "Options"
 msgstr "Seçenekler"
 
@@ -1648,18 +1645,6 @@ msgstr "Bu şu anlama geliyor; eğer Globaleaks'i çalıştıran sunucuya el kon
 msgid "Are you sure that you wish to continue?"
 msgstr "Devam etmek istediğinizden emin misiniz?"
 
-msgid ""
-"Downloading a file with malicious content could compromise your computer or "
-"disclose your identity."
-msgstr ""
-
-msgid "The name of the file and its content can be intentionally misleading."
-msgstr ""
-
-msgid ""
-"Please review the following information and decide if you wish to proceed."
-msgstr ""
-
 msgid "Error!"
 msgstr "Hata!"
 
@@ -1727,28 +1712,6 @@ msgstr "saniye"
 msgid "Size:"
 msgstr "Boyut:"
 
-msgid "Which of the following statements is true?"
-msgstr "Aşağıdaki ifadelerden hangisi doğru?"
-
-msgid "HTTPS protects my identity, but not the content of my submission"
-msgstr ""
-
-msgid "HTTPS protects the content of my submission but not my identity"
-msgstr ""
-
-msgid "HTTPS does not protect the content of my submission nor my identity"
-msgstr ""
-
-msgid "HTTPS does protect both my identity and the content of my submission"
-msgstr ""
-
-msgid ""
-"You are aware of the risks involved. Go ahead, but consider yourself warned."
-msgstr "Oluşabilecek risklerin farkındasınız. Devam edin ancak uyarıldığınızı bilin."
-
-msgid "Wrong Answer!"
-msgstr "Yanlış Cevap!"
-
 msgid "The connection is not secure."
 msgstr ""
 
@@ -1768,9 +1731,6 @@ msgstr "Dosya adı"
 
 msgid "Upload date"
 msgstr "Yükleme Tarihi"
-
-msgid "Content Type"
-msgstr "İçerik Tür"
 
 msgid "File size"
 msgstr "Dosya Boyutu"
@@ -1944,6 +1904,9 @@ msgstr "Koruyucu, ihbarcının kimliğine erişim talep etti"
 msgid "Date of the request"
 msgstr "Talep tarihi"
 
+msgid "Undeclared"
+msgstr ""
+
 msgid "Congratulations!"
 msgstr "Tebrikler!"
 
@@ -1971,7 +1934,7 @@ msgstr "Kayıt ol"
 msgid "Domain"
 msgstr "Alan Adı"
 
-msgid "Use Case"
+msgid "Use case"
 msgstr ""
 
 msgid "Anticorruption"
@@ -1998,9 +1961,6 @@ msgstr ""
 msgid "Check your inbox to activate your account."
 msgstr ""
 
-msgid "The answer is too short."
-msgstr ""
-
 msgid "The specified input is not valid:"
 msgstr "Belirtilen girdi geçerli değil:"
 
@@ -2009,6 +1969,12 @@ msgstr "lütfen geçerli bir e-posta adresi girin."
 
 msgid "please enter numbers only."
 msgstr "Lütfen yalnızca sayı girin."
+
+msgid "This field is mandatory."
+msgstr ""
+
+msgid "The answer is too short."
+msgstr ""
 
 msgid "Recipient selection"
 msgstr "Alıcı seçimi"
@@ -2094,11 +2060,17 @@ msgstr "Gönderiminizi detaylı bir şekilde tanımlayınız"
 msgid "Attach files relevant to the submission."
 msgstr "Gönderiminizle ilgili dosyaları ekleyin"
 
+msgid "Do you want to provide your identification information?"
+msgstr "Kimlik bilgilerinizi girmek istiyor musunuz?"
+
 msgid "Dear {RecipientName},"
 msgstr "Sayın {RecipientName},"
 
 msgid "Kind regards,"
 msgstr "Saygılarımızla,"
+
+msgid "Access instructions"
+msgstr ""
 
 msgid ""
 "The number of activities recently detected appears to be higher than usual."
@@ -2151,6 +2123,27 @@ msgstr "Geçerli bir PGP anahtarı olmadan sistem onlara şifreli bildirimleri g
 
 msgid "PGP key expiration alert"
 msgstr "PGP Anahtarı Geçerlilik Tarihi Uyarısı"
+
+msgid "A new whistleblowing site has been registered."
+msgstr ""
+
+msgid "Registration data:"
+msgstr ""
+
+msgid "Site: {HTTPSUrl} "
+msgstr ""
+
+msgid "Name: {Name}"
+msgstr ""
+
+msgid "Email: {Email}"
+msgstr ""
+
+msgid "Use case: {UseCase}"
+msgstr ""
+
+msgid "New whistleblowing site registered"
+msgstr ""
 
 msgid ""
 "This is a test email sent out from the platform's administrative interface."
@@ -2301,6 +2294,9 @@ msgid "Notifications from {NodeName} have been temporarily suspended"
 msgstr "{NodeName} sunucusundan bildirimler geçici olarak askıya alındı"
 
 msgid "Click the link to activate the platform:"
+msgstr ""
+
+msgid "Activation"
 msgstr ""
 
 msgid "A software update is available."

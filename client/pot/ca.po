@@ -9,7 +9,7 @@
 # Giovanni Pellerano <giovanni.pellerano@evilaliv3.org>, 2014-2018
 # Hermes Center <info@hermescenter.org>, 2016
 # Hermes Center <info@hermescenter.org>, 2016
-# Joan Bitlloch <joanbit@gmail.com>, 2017
+# Joan Bitlloch <joanbit@gmail.com>, 2017-2018
 # Josep Anton Rius <j.rius.cat@gmail.com>, 2016
 # Maddish Falzoni <maddish@xnet-x.net>, 2016
 # Nick Skelsey, 2016
@@ -18,7 +18,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GlobaLeaks\n"
-"PO-Revision-Date: 2018-03-11 17:54+0000\n"
+"PO-Revision-Date: 2018-04-08 11:12+0000\n"
 "Last-Translator: Hermes Center <info@hermescenter.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/otf/globaleaks/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -213,9 +213,6 @@ msgstr "Exporta"
 msgid "Save all"
 msgstr "Desa-ho tot"
 
-msgid "This field is mandatory"
-msgstr "Aquest camp és obligatori"
-
 msgid ""
 "The connection used to send this submission has been secured with HTTPS "
 "ensuring confidentiality."
@@ -288,6 +285,9 @@ msgstr "Nom"
 
 msgid "Last name"
 msgstr "Cognom(s)"
+
+msgid "Gender"
+msgstr "Gènere"
 
 msgid "GENDER_OTHER"
 msgstr "GÈNERE_ALTRE"
@@ -714,12 +714,21 @@ msgid "Create your whistleblowing platform"
 msgstr "Crear su plataforma para informantes"
 
 msgid "Collapse"
-msgstr ""
+msgstr "Plega"
 
 msgid "Expand"
-msgstr ""
+msgstr "Desplega"
 
 msgid "Select"
+msgstr "Selecciona"
+
+msgid "Selected by default"
+msgstr "Activat per defecte"
+
+msgid "Unselected by default"
+msgstr "Desactivat per defecte"
+
+msgid "Surname"
 msgstr ""
 
 msgid "Select the context of your submission:"
@@ -799,12 +808,6 @@ msgstr "Permet als destinataris concedir permisos als informadors sobre determin
 msgid "Enable search engines indexing"
 msgstr "Habilita els motors de cerca d'indexació"
 
-msgid "Enabled"
-msgstr "Habilitat"
-
-msgid "Search engine spiders will be allowed to index the application."
-msgstr "Cercar aranyes dels motors estarà permès per indexar l'aplicació."
-
 msgid "Enable custom privacy panel"
 msgstr "Habilita distintiu personalitzat de privacitat"
 
@@ -817,14 +820,14 @@ msgstr "El text es mostra quan l'informador no fa servir Tor"
 msgid "Disable the privacy panel"
 msgstr "Deshabilita el distintiu de privacitat "
 
-msgid "Security awareness panel title"
-msgstr "Títol del tauler de conscienciació de la seguretat"
+msgid "Enable disclaimer"
+msgstr ""
 
-msgid "Security awareness panel text"
-msgstr "Text del tauler de conscienciació de la seguretat"
+msgid "Title"
+msgstr "Títol"
 
-msgid "Disable the security awareness panel questions"
-msgstr "Deshabilita les preguntes del distintiu de conscienciació de seguretat"
+msgid "Text"
+msgstr "Text"
 
 msgid "Disable the security awareness panel"
 msgstr "Deshabilita el distintiu de conscienciació de seguretat"
@@ -866,9 +869,6 @@ msgstr "Pàgina d'enviament"
 msgid "Title of the submission page"
 msgstr "Títol de la pàgina de l'entrega"
 
-msgid "Title of the attachments widget"
-msgstr "Títol del widget dels adjunts"
-
 msgid "Text of prompt for whistleblowers to log in"
 msgstr "Text que apareix perquè els informadors entrin a la plataforma"
 
@@ -880,12 +880,6 @@ msgstr "Títol de la pàgina de la confirmació de la recepció"
 
 msgid "Title of the submission status page"
 msgstr "Títol de la pàgina de l'estatus de l'entrega"
-
-msgid "Title of the comments widget"
-msgstr "Títol del widget dels comentaris"
-
-msgid "Title of the messages widget"
-msgstr "Títol del widget dels missatges"
 
 msgid "Size limit for file attachments"
 msgstr "Límit de mida per als arxius adjunts"
@@ -909,12 +903,6 @@ msgstr "Nom d'usuari"
 
 msgid "Password"
 msgstr "Contrassenya"
-
-msgid ""
-"This feature keeps regular people from visiting the platform while it is "
-"still under development and should not be used for security purposes. The "
-"input password is stored in plaintext on the server."
-msgstr "Aquest tret evita que la resta de persones visitin la plataforma mentre encara es troba en fase de desenvolupament i no s'hauria d'emprar per a finalitats de seguretat. La contrasenya d'entrada es desa en text sense format al servidor."
 
 msgid "Enable experimental features"
 msgstr "Activa els trets experimentals"
@@ -1012,6 +1000,9 @@ msgstr "Edita"
 msgid "Cancel"
 msgstr "Cancel·la"
 
+msgid "This field is mandatory"
+msgstr "Aquest camp és obligatori"
+
 msgid "Questionnaire"
 msgstr "Qüestionari"
 
@@ -1067,6 +1058,9 @@ msgstr "Permet als receptors carregar arxius per als informadors"
 
 msgid "Disabled"
 msgstr "Deshabilitat"
+
+msgid "Enabled"
+msgstr "Habilitat"
 
 msgid "Submission expiration, in days"
 msgstr "Caducitat de l'entrega, en dies"
@@ -1428,7 +1422,7 @@ msgid "Accept multiple file uploads"
 msgstr "Accepta pujades múltiples de fitxers"
 
 msgid "Accept multiple answers"
-msgstr ""
+msgstr "Accepta múltiples respostes"
 
 msgid "Hint shown on the button for adding an additional answer"
 msgstr "Toc que es mostra al botó per afegir una resposta més"
@@ -1453,6 +1447,9 @@ msgstr "Títol de la pregunta de confirmació davant una resposta negativa"
 
 msgid "Body of the confirmation question upon negative answer"
 msgstr "Text de la pregunta de confirmació davant una resposta negativa"
+
+msgid "Text of the final statement upon negative answer"
+msgstr ""
 
 msgid "Options"
 msgstr "Opcions"
@@ -1641,18 +1638,6 @@ msgstr "Això vol dir que si algú agafés el servidor de la plataforma, seria p
 msgid "Are you sure that you wish to continue?"
 msgstr "Estàs segur que vols continuar?"
 
-msgid ""
-"Downloading a file with malicious content could compromise your computer or "
-"disclose your identity."
-msgstr "La descàrrega d'un arxiu amb contingut maliciós podria posar en perill el seu ordinador o revelar la seva identitat."
-
-msgid "The name of the file and its content can be intentionally misleading."
-msgstr "El nom de l'arxiu i el seu contingut pot ser intencionalment enganyós."
-
-msgid ""
-"Please review the following information and decide if you wish to proceed."
-msgstr "Per favor, revisi la següent informació i decideixi si vol continuar."
-
 msgid "Error!"
 msgstr "Error!"
 
@@ -1718,29 +1703,7 @@ msgid "seconds"
 msgstr "segons"
 
 msgid "Size:"
-msgstr ""
-
-msgid "Which of the following statements is true?"
-msgstr "Quina de les següents afirmacions és certa?"
-
-msgid "HTTPS protects my identity, but not the content of my submission"
-msgstr "HTTPS protegeix la meva identitat, però no el contingut de la meva filtració"
-
-msgid "HTTPS protects the content of my submission but not my identity"
-msgstr "HTTPS protegeix el contingut de la meva filtració però no la meva identitat"
-
-msgid "HTTPS does not protect the content of my submission nor my identity"
-msgstr "HTTPS no protegeix el contingut de la meva filtració ni la meva identitat"
-
-msgid "HTTPS does protect both my identity and the content of my submission"
-msgstr "HTTPS protegeix la meva identitat  i el contingut de la meva filtració"
-
-msgid ""
-"You are aware of the risks involved. Go ahead, but consider yourself warned."
-msgstr "Estàs al corrent dels riscos implicats. Continua endavant, considera't advertit."
-
-msgid "Wrong Answer!"
-msgstr "Resposta incorrecta!"
+msgstr "Mida:"
 
 msgid "The connection is not secure."
 msgstr "La connexió no és segura"
@@ -1761,9 +1724,6 @@ msgstr "Nom del fitxer"
 
 msgid "Upload date"
 msgstr "Data de pujada"
-
-msgid "Content Type"
-msgstr "Tipus de contingut"
 
 msgid "File size"
 msgstr "Mida del fitxer"
@@ -1937,6 +1897,9 @@ msgstr "El guardià ha demanat l'accés a la identitat de l'informador."
 msgid "Date of the request"
 msgstr "Data de la petició"
 
+msgid "Undeclared"
+msgstr ""
+
 msgid "Congratulations!"
 msgstr "Enhorabona!"
 
@@ -1964,8 +1927,8 @@ msgstr "Registrar‐se"
 msgid "Domain"
 msgstr "Domini"
 
-msgid "Use Case"
-msgstr "Caso de uso"
+msgid "Use case"
+msgstr "Cas d'ús"
 
 msgid "Anticorruption"
 msgstr "Anticorrupción"
@@ -1991,9 +1954,6 @@ msgstr "¡Su plataforma para informantes casi está lista!"
 msgid "Check your inbox to activate your account."
 msgstr "Check your inbox to activate your account."
 
-msgid "The answer is too short."
-msgstr "La respuesta es demasiado corta."
-
 msgid "The specified input is not valid:"
 msgstr "La informació que has introduït no és vàlida:"
 
@@ -2002,6 +1962,12 @@ msgstr "si us plau, introdueix una adreça electrònica correcta."
 
 msgid "please enter numbers only."
 msgstr "si us plau, introdueix només nombres."
+
+msgid "This field is mandatory."
+msgstr "Aquest camp és obligatori."
+
+msgid "The answer is too short."
+msgstr "La respuesta es demasiado corta."
 
 msgid "Recipient selection"
 msgstr "Selecciona el destinatari"
@@ -2087,11 +2053,17 @@ msgstr "Descriu els detalls del teu enviament."
 msgid "Attach files relevant to the submission."
 msgstr "Adjunta arxius rellevants per a l'enviament."
 
+msgid "Do you want to provide your identification information?"
+msgstr "Vols introduir la teva informació d'identificació?"
+
 msgid "Dear {RecipientName},"
 msgstr "Benvolgut/uda {RecipientName},"
 
 msgid "Kind regards,"
 msgstr "Rep una salutació cordial,"
+
+msgid "Access instructions"
+msgstr ""
 
 msgid ""
 "The number of activities recently detected appears to be higher than usual."
@@ -2144,6 +2116,27 @@ msgstr "Sense una clau PGP vàlida, el sistema no serà capaç d'enviar notifica
 
 msgid "PGP key expiration alert"
 msgstr "Alerta d'expiració de la clau PGP"
+
+msgid "A new whistleblowing site has been registered."
+msgstr ""
+
+msgid "Registration data:"
+msgstr ""
+
+msgid "Site: {HTTPSUrl} "
+msgstr ""
+
+msgid "Name: {Name}"
+msgstr ""
+
+msgid "Email: {Email}"
+msgstr ""
+
+msgid "Use case: {UseCase}"
+msgstr ""
+
+msgid "New whistleblowing site registered"
+msgstr ""
 
 msgid ""
 "This is a test email sent out from the platform's administrative interface."
@@ -2295,6 +2288,9 @@ msgstr "Les notificacions de {NodeName} s'han suspès temporalment"
 
 msgid "Click the link to activate the platform:"
 msgstr "Pulse el enlace para activar la plataforma:"
+
+msgid "Activation"
+msgstr ""
 
 msgid "A software update is available."
 msgstr "Actualitzacions de programari disponibles"

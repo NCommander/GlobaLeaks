@@ -50,8 +50,7 @@ from globaleaks.handlers.admin import tenant as admin_tenant
 from globaleaks.handlers.admin import user as admin_user
 from globaleaks.rest import apicache, requests, errors
 from globaleaks.settings import Settings
-from globaleaks.state import State
-from globaleaks.utils.mailutils import extract_exception_traceback_and_schedule_email
+from globaleaks.state import State, extract_exception_traceback_and_schedule_email
 
 
 uuid_regexp = r'([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})'
@@ -218,17 +217,20 @@ class APIResourceWrapper(Resource):
 
             self._registry.append((re.compile(pattern), handler, args))
 
-    def should_redirect_tor(self, request):
-        if request.client_using_tor and \
-            request.hostname not in ['127.0.0.1'] + State.tenant_cache[request.tid].onionnames:
+    def should_redirect_https(self, request):
+        if ((request.hostname.endswith(State.tenant_cache[1].rootdomain) and
+             State.tenant_cache[1].https_enabled) or
+            (request.hostname == State.tenant_cache[request.tid].hostname and
+             State.tenant_cache[request.tid].https_enabled)) and \
+           request.client_proto == 'http' and \
+           request.client_ip not in Settings.local_hosts:
             return True
 
         return False
 
-    def should_redirect_https(self, request):
-        if State.tenant_cache[request.tid].https_enabled and \
-           request.client_proto == 'http' and \
-           request.client_ip not in Settings.local_hosts:
+    def should_redirect_tor(self, request):
+        if request.client_using_tor and \
+            request.hostname not in ['127.0.0.1'] + State.tenant_cache[request.tid].onionnames:
             return True
 
         return False
@@ -239,7 +241,7 @@ class APIResourceWrapper(Resource):
 
     def redirect_https(self, request):
         _, _, path, query, frag = urlparse.urlsplit(request.uri)
-        redirect_url = urlparse.urlunsplit(('https', State.tenant_cache[request.tid].hostname, path, query, frag))
+        redirect_url = urlparse.urlunsplit(('https', request.hostname, path, query, frag))
         self.redirect(request, redirect_url)
 
     def redirect_tor(self, request):
@@ -264,6 +266,8 @@ class APIResourceWrapper(Resource):
         elif isinstance(e.value, errors.GLException):
             e = e.value
         else:
+            e.tid = request.tid
+            e.url = request.client_proto + '://' + request.hostname + request.uri
             extract_exception_traceback_and_schedule_email(e)
             e = errors.InternalServerError('Unexpected')
 

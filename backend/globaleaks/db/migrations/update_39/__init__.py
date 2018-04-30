@@ -3,7 +3,7 @@ import os
 import shutil
 
 from globaleaks.db.migrations.update import MigrationBase
-from globaleaks.db.migrations.update_37.config_desc import GLConfig
+from globaleaks.db.migrations.update_37.config_desc import GLConfig_v_37
 from globaleaks.models import *
 from globaleaks.models import config_desc
 from globaleaks.models.properties import *
@@ -39,16 +39,12 @@ class Comment_v_38(Model):
 
 class Config_v_38(Model):
     __tablename__ = 'config'
-    cfg_desc = GLConfig
     var_group = Column(UnicodeText, primary_key=True)
     var_name = Column(UnicodeText, primary_key=True)
     value = Column(JSON)
     customized = Column(Boolean, default=False)
 
-    def __init__(self, group=None, name=None, value=None, cfg_desc=None, migrate=False):
-        if cfg_desc is not None:
-            self.cfg_desc = cfg_desc
-
+    def __init__(self, group=None, name=None, value=None, migrate=False):
         if migrate:
             return
 
@@ -66,7 +62,7 @@ class Config_v_38(Model):
         return d
 
     def set_v(self, val):
-        desc = self.find_descriptor(self.cfg_desc, self.var_group, self.var_name)
+        desc = self.find_descriptor(GLConfig_v_37, self.var_group, self.var_name)
         if val is None:
             val = desc._type()
         if isinstance(desc, config_desc.Unicode) and isinstance(val, str):
@@ -104,7 +100,6 @@ class ConfigL10N_v_38(Model):
         self.var_group = unicode(group)
         self.var_name = unicode(var_name)
         self.value = unicode(value)
-
 
     def set_v(self, value):
         value = unicode(value)
@@ -549,16 +544,17 @@ class MigrationScript(MigrationBase):
     def migrate_File(self):
         old_objs = self.session_old.query(self.model_from['File'])
         for old_obj in old_objs:
+            obj_id = None
             u = self.session_old.query(self.model_from['User']).filter(self.model_from['User'].img_id == old_obj.id).one_or_none()
             c = self.session_old.query(self.model_from['Context']).filter(self.model_from['Context'].img_id == old_obj.id).one_or_none()
             if u is not None:
                 new_obj = self.model_to['UserImg']()
-                new_obj.id = u.id
+                obj_id = u.id
                 self.entries_count['UserImg'] += 1
                 self.entries_count['File'] -= 1
             elif c is not None:
                 new_obj = self.model_to['ContextImg']()
-                new_obj.id = c.id
+                obj_id = c.id
                 self.entries_count['ContextImg'] += 1
                 self.entries_count['File'] -= 1
             else:
@@ -571,6 +567,9 @@ class MigrationScript(MigrationBase):
                     new_obj.name = ''
                 else:
                     setattr(new_obj, key, getattr(old_obj, key))
+
+            if obj_id is not None:
+                new_obj.id = obj_id
 
             self.session_new.add(new_obj)
 

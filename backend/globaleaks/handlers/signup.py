@@ -8,13 +8,14 @@ from globaleaks import models
 from globaleaks.handlers.admin.node import db_admin_serialize_node
 from globaleaks.handlers.admin.notification import db_get_notification
 from globaleaks.handlers.admin.tenant import db_create as db_create_tenant
+from globaleaks.handlers.admin.user import db_get_admin_users
 from globaleaks.handlers.base import BaseHandler, new_session
 from globaleaks.handlers.wizard import db_wizard
 from globaleaks.models import config
 from globaleaks.orm import transact
 from globaleaks.rest import requests, errors, apicache
-from globaleaks.utils.utility import datetime_to_ISO8601
 from globaleaks.utils.security import generateRandomKey
+from globaleaks.utils.utility import datetime_to_ISO8601
 
 
 def serialize_signup(signup):
@@ -24,7 +25,9 @@ def serialize_signup(signup):
         'email': signup.email,
         'subdomain': signup.subdomain,
         'activation_token': signup.activation_token,
-        'registration_date': datetime_to_ISO8601(signup.registration_date)
+        'registration_date': datetime_to_ISO8601(signup.registration_date),
+        'use_case': signup.use_case,
+        'use_case_other': signup.use_case_other
     }
 
 
@@ -50,6 +53,14 @@ def signup(session, state, tid, request, language):
         'expiration_date': datetime_to_ISO8601(signup.registration_date + timedelta(days=30))
     }
 
+    # We need to send two emails
+    #
+    # The first one is sent to the platform owner with the activation email.
+    #
+    # The second goes to the instance administrators notifying them that a new
+    # platform has been added.
+
+    # Email 1 - Activation Link
     template_vars = copy.deepcopy(ret)
     template_vars.update({
         'type': 'signup',
@@ -58,6 +69,19 @@ def signup(session, state, tid, request, language):
     })
 
     state.format_and_send_mail(session, 1, {'mail_address': signup.email}, template_vars)
+
+    # Email 2 - Admin Notification
+    for user_desc in db_get_admin_users(session, 1):
+        template_vars = copy.deepcopy(ret)
+        template_vars.update({
+            'type': 'admin_signup_alert',
+            'signup': serialize_signup(signup),
+            'node': db_admin_serialize_node(session, 1, user_desc['language']),
+            'notification': db_get_notification(session, 1, user_desc['language']),
+            'user': user_desc
+        })
+
+        state.format_and_send_mail(session, 1, user_desc, template_vars)
 
     return ret
 
@@ -90,33 +114,33 @@ def signup_activation(session, state, tid, token, language):
 
         db_wizard(session, state, signup.tid, wizard, False, language)
 
+        session.query(models.User).filter(models.User.tid == signup.tid).update({'password_change_needed': False})
+
         template_vars = {
             'type': 'activation',
             'node': db_admin_serialize_node(session, 1, language),
             'notification': db_get_notification(session, 1, language),
             'signup': serialize_signup(signup),
             'activation_url': '',
-            'expiration_date': datetime_to_ISO8601(signup.registration_date + timedelta(days=7))
+            'expiration_date': datetime_to_ISO8601(signup.registration_date + timedelta(days=30))
         }
 
         state.format_and_send_mail(session, 1, {'mail_address': signup.email}, template_vars)
 
     if session.query(models.Tenant).filter(models.Tenant.id == signup.tid).one_or_none() is not None:
-        admin = session.query(models.User).filter(models.User.tid == signup.tid, models.User.role == u'admin').one()
-        admin.password_change_needed = False
+        admin = session.query(models.User).filter(models.User.tid == signup.tid, models.User.role == u'admin', models.User.username == u'admin').one_or_none()
+        recipient = session.query(models.User).filter(models.User.tid == signup.tid, models.User.role == u'receiver', models.User.username == u'recipient').one_or_none()
 
-        recipient = session.query(models.User).filter(models.User.tid == signup.tid, models.User.role == u'receiver').one()
-        recipient.password_change_needed = False
+        if admin is not None and recipient is not None:
+            return {
+                'platform_url': 'https://%s.%s' % (signup.subdomain, node.get_val(u'rootdomain')),
+                'login_url': 'https://%s.%s/#/login' % (signup.subdomain, node.get_val(u'rootdomain')),
+                'admin_login_url': 'https://%s.%s/#/login?token=%s' % (signup.subdomain, node.get_val(u'rootdomain'), admin.auth_token),
+                'recipient_login_url': 'https://%s.%s/#/login?token=%s' % (signup.subdomain, node.get_val(u'rootdomain'), recipient.auth_token),
+                'expiration_date': datetime_to_ISO8601(signup.registration_date + timedelta(days=7))
+            }
 
-        return {
-            'platform_url': 'https://%s.%s' % (signup.subdomain, node.get_val(u'rootdomain')),
-            'login_url': 'https://%s.%s/#/login' % (signup.subdomain, node.get_val(u'rootdomain')),
-            'admin_login_url': 'https://%s.%s/#/login?token=%s' % (signup.subdomain, node.get_val(u'rootdomain'), admin.auth_token),
-            'recipient_login_url': 'https://%s.%s/#/login?token=%s' % (signup.subdomain, node.get_val(u'rootdomain'), recipient.auth_token),
-            'expiration_date': datetime_to_ISO8601(signup.registration_date + timedelta(days=7))
-        }
-    else:
-        return {}
+    return {}
 
 
 class Signup(BaseHandler):

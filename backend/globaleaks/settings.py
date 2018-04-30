@@ -4,12 +4,16 @@
 from __future__ import print_function
 
 import getpass
-import grp
+import platform
 import logging
 import os
-import pwd
 import re
 import sys
+
+if platform.system() != 'Windows':
+    import grp
+    import pwd
+
 # pylint: enable=no-name-in-module
 from optparse import OptionParser
 
@@ -120,8 +124,16 @@ class SettingsClass(object):
 
         self.user = getpass.getuser()
         self.group = getpass.getuser()
-        self.uid = os.getuid()
-        self.gid = os.getgid()
+
+        # Initialize to None since Windows doesn't have a direct 1:1 concept
+        # of uid/gid.
+        self.uid = None
+        self.gid = None
+
+        if platform.system() != 'Windows':
+            self.uid = os.getuid()
+            self.gid = os.getgid()
+
         self.devel_mode = False
         self.developer_name = ''
         self.disable_swap = False
@@ -232,13 +244,17 @@ class SettingsClass(object):
         if self.cmdline_options.user and self.cmdline_options.group:
             self.user = self.cmdline_options.user
             self.group = self.cmdline_options.group
-            self.uid = pwd.getpwnam(self.cmdline_options.user).pw_uid
-            self.gid = grp.getgrnam(self.cmdline_options.group).gr_gid
+
+            if platform.system() != 'Windows':
+                self.uid = pwd.getpwnam(self.cmdline_options.user).pw_uid
+                self.gid = grp.getgrnam(self.cmdline_options.group).gr_gid
         elif self.cmdline_options.user:
             # user selected: get also the associated group
             self.user = self.cmdline_options.user
-            self.uid = pwd.getpwnam(self.cmdline_options.user).pw_uid
-            self.gid = pwd.getpwnam(self.cmdline_options.user).pw_gid
+
+            if platform.system() == 'Windows':
+                self.uid = pwd.getpwnam(self.cmdline_options.user).pw_uid
+                self.gid = pwd.getpwnam(self.cmdline_options.user).pw_gid
         elif self.cmdline_options.group:
             # group selected: keep the current user
             self.group = self.cmdline_options.group
@@ -249,14 +265,14 @@ class SettingsClass(object):
             self.print_msg("Invalid user: cannot run as root")
             sys.exit(1)
 
-        if self.cmdline_options.working_path:
-            self.working_path = self.cmdline_options.working_path
-
         if self.cmdline_options.developer_name:
             self.print_msg("Enabling development mode for %s" % self.cmdline_options.developer_name)
             self.developer_name = unicode(self.cmdline_options.developer_name)
             self.set_devel_mode()
             self.orm_debug = self.cmdline_options.orm_debug
+
+        if self.cmdline_options.working_path:
+            self.working_path = self.cmdline_options.working_path
 
         self.api_prefix = self.cmdline_options.api_prefix
 

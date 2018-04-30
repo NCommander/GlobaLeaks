@@ -1,11 +1,16 @@
 # -*- coding: utf-8
 import os
+import re
 import sys
+import traceback
 
 from twisted.internet import defer
+from twisted.mail.smtp import SMTPError
+from twisted.python.failure import Failure
 from twisted.python.threadpool import ThreadPool
 
 from globaleaks import __version__, orm, models
+from globaleaks.transactions import schedule_email
 from globaleaks.utils.agent import get_tor_agent, get_web_agent
 from globaleaks.utils.mailutils import sendmail
 from globaleaks.utils.objectdict import ObjectDict
@@ -47,9 +52,11 @@ class StateClass(ObjectDict):
 
         self.https_socks = []
         self.http_socks = []
+
         self.jobs = []
         self.jobs_monitor = None
         self.services = []
+        self.onion_service_job = None
 
         self.api_token_session = None
 
@@ -66,6 +73,7 @@ class StateClass(ObjectDict):
 
         self.set_orm_tp(ThreadPool(4, 16))
         self.TempUploadFiles = TempDict(timeout=3600)
+
 
     def init_environment(self):
         os.umask(077)
@@ -180,7 +188,7 @@ class StateClass(ObjectDict):
                        self.tenant_cache[tid].notification.smtp_source_name,
                        self.tenant_cache[tid].notification.smtp_source_email,
                        to_address,
-                       subject,
+                       self.tenant_cache[tid].name + ' - ' + subject,
                        body,
                        self.tenant_cache[tid].anonymize_outgoing_connections,
                        self.settings.socks_host,
@@ -188,8 +196,6 @@ class StateClass(ObjectDict):
 
 
     def schedule_exception_email(self, exception_text, *args):
-        from globaleaks.transactions import schedule_email
-
         if not hasattr(self.tenant_cache[1], 'notification'):
             log.err("Error: Cannot send mail exception before complete initialization.")
             return
@@ -218,8 +224,9 @@ class StateClass(ObjectDict):
             mail_subject +=  " [%s]" % self.settings.developer_name
             delivery_list = [("globaleaks-stackexception-devel@globaleaks.org", '')]
 
-        mail_body = bytes("Platform: %s (%s)\nVersion: %s\n\n%s" \
-                          % (self.tenant_cache[1].hostname,
+        mail_body = bytes("Platform: %s\nHost: %s (%s)\nVersion: %s\n\n%s" \
+                          % (self.tenant_cache[1].name,
+                             self.tenant_cache[1].hostname,
                              self.tenant_cache[1].onionservice,
                              __version__,
                              exception_text))
@@ -237,7 +244,7 @@ class StateClass(ObjectDict):
 
     def refresh_tenant_states(self):
         # Remove selected onion services and add missing services
-        if self.onion_service_job:
+        if self.onion_service_job is not None:
             def f(*args):
                 return self.onion_service_job.add_all_hidden_services()
 
@@ -268,6 +275,49 @@ class StateClass(ObjectDict):
         for k, v in self.TempUploadFiles.items():
             if v.filepath == path:
                 return self.TempUploadFiles.pop(k)
+
+def mail_exception_handler(etype, value, tback):
+    """
+    Formats traceback and exception data and emails the error,
+    This would be enabled only in the testing phase and testing release,
+    not in production release.
+    """
+    if isinstance(value, (GeneratorExit,
+                          defer.AlreadyCalledError,
+                          SMTPError)) or \
+        (etype == AssertionError and value.message == "Request closed"):
+        # we need to bypass email notification for some exception that:
+        # 1) raise frequently or lie in a twisted bug;
+        # 2) lack of useful stacktraces;
+        # 3) can be cause of email storm amplification
+        #
+        # this kind of exception can be simply logged error logs.
+        log.err("exception mail suppressed for exception (%s) [reason: special exception]", str(etype))
+        return
+
+    mail_body = ""
+
+    # collection of the stacktrace info
+    exc_type = re.sub("(<(type|class ')|'exceptions.|'>|__main__.)",
+                      "", str(etype))
+
+    mail_body += "%s %s\n\n" % (exc_type.strip(), etype.__doc__)
+
+    mail_body += '\n'.join(traceback.format_exception(etype, value, tback))
+
+    log.err("Unhandled exception raised:")
+    log.err(mail_body)
+
+    State.schedule_exception_email(mail_body)
+
+
+def extract_exception_traceback_and_schedule_email(e):
+    if isinstance(e, Failure):
+        type, value, traceback = e.type, e.value, e.getTracebackObject()
+    else:
+        type, value, traceback = sys.exc_info()
+
+    mail_exception_handler(type, value, traceback)
 
 # State is a singleton class exported once
 State = StateClass()

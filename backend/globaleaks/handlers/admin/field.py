@@ -60,12 +60,12 @@ def db_update_fieldoptions(session, tid, field_id, options, language):
     options_ids = [db_update_fieldoption(session, tid, field_id, option['id'], option, language, idx) for idx, option in enumerate(options)]
 
     if options_ids:
-        ids = [x[0] for x in session.query(models.FieldOption.id).filter(models.FieldOption.field_id == field_id,
-                                                                         not_(models.FieldOption.id.in_(options_ids)),
-                                                                         models.FieldOption.field_id == models.Field.id,
-                                                                         models.Field.tid == tid)]
-        if ids:
-            session.query(models.FieldOption).filter(models.FieldOption.id.in_(ids)).delete(synchronize_session='fetch')
+        ids_to_remove = session.query(models.FieldOption.id).filter(models.FieldOption.field_id == field_id,
+                                                                    not_(models.FieldOption.id.in_(options_ids)),
+                                                                    models.FieldOption.field_id == models.Field.id,
+                                                                    models.Field.tid == tid)
+
+        session.query(models.FieldOption).filter(models.FieldOption.id.in_(ids_to_remove.subquery())).delete(synchronize_session='fetch')
 
 
 def db_update_fieldattr(session, tid, field_id, attr_name, attr_dict, language):
@@ -91,13 +91,12 @@ def db_update_fieldattrs(session, tid, field_id, field_attrs, language):
     attrs_ids = [db_update_fieldattr(session, tid, field_id, attr_name, attr, language) for attr_name, attr in field_attrs.items()]
 
     if attrs_ids:
-        ids = [x[0] for x in session.query(models.FieldAttr.id).filter(models.FieldAttr.field_id == field_id,
-                                                                       not_(models.FieldAttr.id.in_(attrs_ids)),
-                                                                       models.FieldAttr.field_id == models.Field.id,
-                                                                       models.Field.tid == tid)]
+        ids_to_remove = session.query(models.FieldAttr.id).filter(models.FieldAttr.field_id == field_id,
+                                                                  not_(models.FieldAttr.id.in_(attrs_ids)),
+                                                                  models.FieldAttr.field_id == models.Field.id,
+                                                                  models.Field.tid == tid)
 
-        if ids:
-            session.query(models.FieldAttr).filter(models.FieldAttr.id.in_(ids)).delete(synchronize_session='fetch')
+        session.query(models.FieldAttr).filter(models.FieldAttr.id.in_(ids_to_remove.subquery())).delete(synchronize_session='fetch')
 
 
 def check_field_association(session, tid, field_dict):
@@ -135,30 +134,37 @@ def db_create_field(session, tid, field_dict, language):
 
     check_field_association(session, tid, field_dict)
 
-    field = models.db_forge_obj(session, models.Field, field_dict)
-
-    if field.template_id is not None:
-        # special handling of the whistleblower_identity field
-        if field.template_id == 'whistleblower_identity':
-            field_attrs = read_json_file(Settings.field_attrs_file)
-            attrs = field_attrs.get(field.template_id, {})
-            db_add_field_attrs(session, field.id, attrs)
-
-            if field.step_id is not None:
-                questionnaire = session.query(models.Questionnaire) \
-                                       .filter(models.Field.id == field.id,
-                                               models.Field.step_id == models.Step.id,
-                                               models.Step.questionnaire_id == models.Questionnaire.id,
-                                               models.Questionnaire.tid == tid).one()
-
-                if questionnaire.enable_whistleblower_identity is False:
-                    questionnaire.enable_whistleblower_identity = True
-                else:
-                    raise errors.InputValidationError("Whistleblower identity field already present")
-            else:
+    if field_dict.get('template_id', '') != '':
+        if field_dict['template_id'] == 'whistleblower_identity':
+            if field_dict.get('step_id', '') == '':
                 raise errors.InputValidationError("Cannot associate whistleblower identity field to a fieldgroup")
 
+            q_id = session.query(models.Questionnaire.id) \
+                          .filter(models.Questionnaire.id == models.Step.questionnaire_id,
+                                  models.Step.id == field_dict['step_id'])
+
+            field = session.query(models.Field) \
+                           .filter(models.Field.template_id == u'whistleblower_identity',
+                                   models.Field.step_id == models.Step.id,
+                                   models.Step.questionnaire_id.in_(q_id.subquery())).one_or_none()
+
+            if field is not None:
+                raise errors.InputValidationError("Whistleblower identity field already present")
+
+        field = models.db_forge_obj(session, models.Field, field_dict)
+
+        template = session.query(models.Field).filter(models.Field.id == field_dict['template_id']).one()
+
+        field.label = template.label
+        field.hint = template.hint
+        field.description = template.description
+
+        field_attrs = read_json_file(Settings.field_attrs_file)
+        attrs = field_attrs.get(field.template_id, {})
+        db_add_field_attrs(session, field.id, attrs)
+
     else:
+        field = models.db_forge_obj(session, models.Field, field_dict)
         attrs = field_dict.get('attrs', [])
         options = field_dict.get('options', [])
 
@@ -189,13 +195,13 @@ def db_update_field(session, tid, field_id, field_dict, language):
 
     check_field_association(session, tid, field_dict)
 
+    fill_localized_keys(field_dict, models.Field.localized_keys, language)
+
     db_update_fieldattrs(session, tid, field.id, field_dict['attrs'], language)
 
     # make not possible to change field type
     field_dict['type'] = field.type
     if field_dict['instance'] != 'reference':
-        fill_localized_keys(field_dict, models.Field.localized_keys, language)
-
         db_update_fieldoptions(session, tid, field.id, field_dict['options'], language)
 
         # full update
@@ -204,10 +210,13 @@ def db_update_field(session, tid, field_id, field_dict, language):
     else:
         # partial update
         field.update({
+          'label': field_dict['label'],
+          'hint': field_dict['hint'],
+          'description': field_dict['description'],
           'x': field_dict['x'],
           'y': field_dict['y'],
           'width': field_dict['width'],
-          'multi_entry': field_dict['multi_entry']
+          'required': field_dict['required']
         })
 
     return field
@@ -247,12 +256,6 @@ def delete_field(session, tid, field_id):
 
     if field.instance == 'template' and session.query(models.Field).filter(models.Field.tid == tid, models.Field.template_id == field.id).count():
         raise errors.InputValidationError("Cannot remove the field template as it is used by one or more questionnaires")
-
-    if field.template_id == 'whistleblower_identity' and field.step_id is not None:
-        session.query(models.Questionnaire) \
-               .filter(models.Questionnaire.tid == tid,
-                       models.Step.id == field.step_id,
-                       models.Questionnaire.id == models.Step.questionnaire_id).update({'enable_whistleblower_identity': False})
 
     session.delete(field)
 

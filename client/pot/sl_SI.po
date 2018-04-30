@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GlobaLeaks\n"
-"PO-Revision-Date: 2018-03-11 17:54+0000\n"
+"PO-Revision-Date: 2018-04-08 11:12+0000\n"
 "Last-Translator: Hermes Center <info@hermescenter.org>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/otf/globaleaks/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
@@ -202,9 +202,6 @@ msgstr "Izvozi"
 msgid "Save all"
 msgstr "Shrani vse"
 
-msgid "This field is mandatory"
-msgstr "To polje je obvezno"
-
 msgid ""
 "The connection used to send this submission has been secured with HTTPS "
 "ensuring confidentiality."
@@ -277,6 +274,9 @@ msgstr "Ime"
 
 msgid "Last name"
 msgstr "Priimek"
+
+msgid "Gender"
+msgstr "Spol"
 
 msgid "GENDER_OTHER"
 msgstr "SPOL_OSTALO"
@@ -711,6 +711,15 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
+msgid "Selected by default"
+msgstr ""
+
+msgid "Unselected by default"
+msgstr ""
+
+msgid "Surname"
+msgstr ""
+
 msgid "Select the context of your submission:"
 msgstr "Izberite tematiko vašega prispevka:"
 
@@ -788,12 +797,6 @@ msgstr "Omogoči prejemnikom odobritev dostopa žvižgačem do izbranih prispevk
 msgid "Enable search engines indexing"
 msgstr "Omogoči indeksiranje iskalnikom"
 
-msgid "Enabled"
-msgstr "Omogočeno"
-
-msgid "Search engine spiders will be allowed to index the application."
-msgstr "Pajki iskalnikov bodo lahko iskali po tej aplikaciji."
-
 msgid "Enable custom privacy panel"
 msgstr "Omogoči prilagojen pult o zasebnosti"
 
@@ -806,14 +809,14 @@ msgstr "Besedilo, ki bo prikazano, če se uporabnik ne povezuje prek Tor omrežj
 msgid "Disable the privacy panel"
 msgstr "Omogoči prilagojen pult o zasebnosti"
 
-msgid "Security awareness panel title"
-msgstr "Naslov oddelka o varnosti"
+msgid "Enable disclaimer"
+msgstr ""
 
-msgid "Security awareness panel text"
-msgstr "Vsebina oddelka o varnosti"
+msgid "Title"
+msgstr ""
 
-msgid "Disable the security awareness panel questions"
-msgstr "Onemogoči vprašanja na pultu o varnostni ozaveščenosti"
+msgid "Text"
+msgstr "Besedilo"
 
 msgid "Disable the security awareness panel"
 msgstr "Onemogoči pult o varnostni ozaveščenosti"
@@ -855,9 +858,6 @@ msgstr "Stran naznanitve"
 msgid "Title of the submission page"
 msgstr "Naslov strani za prispevke"
 
-msgid "Title of the attachments widget"
-msgstr ""
-
 msgid "Text of prompt for whistleblowers to log in"
 msgstr "Besedilo ob prijavi žvižgača"
 
@@ -869,12 +869,6 @@ msgstr "Naslov strani prejemnika"
 
 msgid "Title of the submission status page"
 msgstr "Naslov strani statusa prispevka"
-
-msgid "Title of the comments widget"
-msgstr ""
-
-msgid "Title of the messages widget"
-msgstr ""
 
 msgid "Size limit for file attachments"
 msgstr "Omejitev velikosti datotek v prilogah"
@@ -898,12 +892,6 @@ msgstr "Uporabniško ime"
 
 msgid "Password"
 msgstr "Geslo"
-
-msgid ""
-"This feature keeps regular people from visiting the platform while it is "
-"still under development and should not be used for security purposes. The "
-"input password is stored in plaintext on the server."
-msgstr ""
 
 msgid "Enable experimental features"
 msgstr "Omogoči eksperimentalne funkcije"
@@ -1001,6 +989,9 @@ msgstr "Uredi"
 msgid "Cancel"
 msgstr "Prekliči"
 
+msgid "This field is mandatory"
+msgstr "To polje je obvezno"
+
 msgid "Questionnaire"
 msgstr "Vprašalniki"
 
@@ -1056,6 +1047,9 @@ msgstr ""
 
 msgid "Disabled"
 msgstr "Onemogočeno"
+
+msgid "Enabled"
+msgstr "Omogočeno"
 
 msgid "Submission expiration, in days"
 msgstr "Potek veljavnosti prispevka v dneh"
@@ -1443,6 +1437,9 @@ msgstr ""
 msgid "Body of the confirmation question upon negative answer"
 msgstr ""
 
+msgid "Text of the final statement upon negative answer"
+msgstr ""
+
 msgid "Options"
 msgstr "Možnosti"
 
@@ -1630,18 +1627,6 @@ msgstr ""
 msgid "Are you sure that you wish to continue?"
 msgstr "Ali ste prepričani, da želite nadaljevati?"
 
-msgid ""
-"Downloading a file with malicious content could compromise your computer or "
-"disclose your identity."
-msgstr ""
-
-msgid "The name of the file and its content can be intentionally misleading."
-msgstr ""
-
-msgid ""
-"Please review the following information and decide if you wish to proceed."
-msgstr ""
-
 msgid "Error!"
 msgstr "Napaka!"
 
@@ -1709,28 +1694,6 @@ msgstr "sekund"
 msgid "Size:"
 msgstr ""
 
-msgid "Which of the following statements is true?"
-msgstr "Katera od navedenih trditev je pravilna?"
-
-msgid "HTTPS protects my identity, but not the content of my submission"
-msgstr ""
-
-msgid "HTTPS protects the content of my submission but not my identity"
-msgstr ""
-
-msgid "HTTPS does not protect the content of my submission nor my identity"
-msgstr ""
-
-msgid "HTTPS does protect both my identity and the content of my submission"
-msgstr ""
-
-msgid ""
-"You are aware of the risks involved. Go ahead, but consider yourself warned."
-msgstr ""
-
-msgid "Wrong Answer!"
-msgstr "Napačen odgovor!"
-
 msgid "The connection is not secure."
 msgstr ""
 
@@ -1750,9 +1713,6 @@ msgstr "Ime datoteke"
 
 msgid "Upload date"
 msgstr "Datum pošiljanja"
-
-msgid "Content Type"
-msgstr "Vrsta vsebine"
 
 msgid "File size"
 msgstr "Velikost datoteke"
@@ -1926,6 +1886,9 @@ msgstr "Zahtevek za dostop do identitete žvižgača je bil posredovan skrbniku.
 msgid "Date of the request"
 msgstr "Datum zahtevka"
 
+msgid "Undeclared"
+msgstr ""
+
 msgid "Congratulations!"
 msgstr "Čestitamo!"
 
@@ -1953,7 +1916,7 @@ msgstr "Sign up"
 msgid "Domain"
 msgstr ""
 
-msgid "Use Case"
+msgid "Use case"
 msgstr ""
 
 msgid "Anticorruption"
@@ -1980,9 +1943,6 @@ msgstr ""
 msgid "Check your inbox to activate your account."
 msgstr ""
 
-msgid "The answer is too short."
-msgstr ""
-
 msgid "The specified input is not valid:"
 msgstr "Vnos ni veljaven:"
 
@@ -1991,6 +1951,12 @@ msgstr "vpišite veljaven naslov elektronske pošte."
 
 msgid "please enter numbers only."
 msgstr "vpisujte samo številke."
+
+msgid "This field is mandatory."
+msgstr ""
+
+msgid "The answer is too short."
+msgstr ""
 
 msgid "Recipient selection"
 msgstr "Izbira prejemnika"
@@ -2076,11 +2042,17 @@ msgstr ""
 msgid "Attach files relevant to the submission."
 msgstr ""
 
+msgid "Do you want to provide your identification information?"
+msgstr "Ali želite navesti podatke o vaši identiteti?"
+
 msgid "Dear {RecipientName},"
 msgstr "Spoštovani {RecipientName},"
 
 msgid "Kind regards,"
 msgstr "S spoštovanjem,"
+
+msgid "Access instructions"
+msgstr ""
 
 msgid ""
 "The number of activities recently detected appears to be higher than usual."
@@ -2133,6 +2105,27 @@ msgstr "Brez veljavnega PGP ključa, sistem ne more pošiljati kodiranih sporoč
 
 msgid "PGP key expiration alert"
 msgstr "Opozorilo o poteku PGP ključa"
+
+msgid "A new whistleblowing site has been registered."
+msgstr ""
+
+msgid "Registration data:"
+msgstr ""
+
+msgid "Site: {HTTPSUrl} "
+msgstr ""
+
+msgid "Name: {Name}"
+msgstr ""
+
+msgid "Email: {Email}"
+msgstr ""
+
+msgid "Use case: {UseCase}"
+msgstr ""
+
+msgid "New whistleblowing site registered"
+msgstr ""
 
 msgid ""
 "This is a test email sent out from the platform's administrative interface."
@@ -2283,6 +2276,9 @@ msgid "Notifications from {NodeName} have been temporarily suspended"
 msgstr "Obvestila {NodeName} so začasno ustavljena."
 
 msgid "Click the link to activate the platform:"
+msgstr ""
+
+msgid "Activation"
 msgstr ""
 
 msgid "A software update is available."

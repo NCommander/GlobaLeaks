@@ -40,8 +40,8 @@ ConfigDescriptor = {
     u'acme': Bool(default=False),
     u'acme_accnt_key': Unicode(),
     u'acme_accnt_uri': Unicode(),
-
-    u'tor_onion_key': Unicode(), # Limits from txtorcon
+    u'tor_enabled': Bool(default=True),
+    u'tor_onion_key': Unicode(),
 
     u'https_priv_key': Unicode(),
     u'https_priv_gen': Bool(default=False),
@@ -106,8 +106,7 @@ ConfigDescriptor = {
 
     u'disable_submissions': Bool(default=False),
     u'disable_privacy_badge': Bool(default=False),
-    u'disable_security_awareness_badge': Bool(default=False),
-    u'disable_security_awareness_questions': Bool(default=False),
+    u'enable_disclaimer': Bool(default=False),
     u'disable_key_code_hint': Bool(default=False),
     u'disable_donation_panel': Bool(default=False),
 
@@ -169,8 +168,7 @@ ConfigFilters = {
         u'wizard_done',
         u'disable_submissions',
         u'disable_privacy_badge',
-        u'disable_security_awareness_badge',
-        u'disable_security_awareness_questions',
+        u'enable_disclaimer',
         u'disable_key_code_hint',
         u'disable_donation_panel',
         u'enable_signup',

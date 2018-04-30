@@ -174,29 +174,31 @@ directive('imageUpload', function () {
   };
 }).
 // pgpPubKeyDisplay displays the important details from a public key.
-directive('pgpPubkeyDisplay', ['pgp', 'glbcKeyLib', function(pgp, glbcKeyLib) {
+directive('pgpPubkeyDisplay', ['$q', 'pgp', 'glbcKeyLib', function($q, pgp, glbcKeyLib) {
   // Create object that displays relevant key details to the user. This function
   // returns fingerprint, key id, creation date, and expiration date. If the parse
   // fails the function returns undefined.
   function pgpKeyDetails(armoredText) {
+    var defer = $q.defer();
+
     if (typeof armoredText !== 'string') {
-      return;
+      return defer.reject();
     }
 
     if (typeof armoredText !== 'string' || armoredText.substr(0,3) !== '---') {
-      return;
+      return defer.reject();
     }
 
     // Catch the obivous errors and save time!
     if (typeof armoredText !== 'string' || armoredText.substr(0,3) !== '---') {
-      return;
+      return defer.reject();
     }
 
     var res = pgp.key.readArmored(armoredText);
 
     if (angular.isDefined(res.err)) {
       // There were errors. Bail out.
-      return;
+      return defer.reject();
     }
 
     var key = res.keys[0];
@@ -205,12 +207,16 @@ directive('pgpPubkeyDisplay', ['pgp', 'glbcKeyLib', function(pgp, glbcKeyLib) {
     var uids = extractAllUids(key);
     var created = key.primaryKey.created;
 
-    return {
-      user_info: uids,
-      fingerprint: niceprint,
-      created: created,
-      expiration: key.getExpirationTime(),
-    };
+    key.getExpirationTime().then(function(keyExpirationTime) {
+      return defer.resolve({
+        user_info: uids,
+        fingerprint: niceprint,
+        created: created,
+        expiration: keyExpirationTime,
+      });
+    });
+
+    return defer.promise;
   }
 
   // niceFingerPrint produces the full key fingerprint in the standard
@@ -256,13 +262,19 @@ directive('pgpPubkeyDisplay', ['pgp', 'glbcKeyLib', function(pgp, glbcKeyLib) {
     },
     link: function(scope) {
       scope.$watch('keyStr', function(newVal) {
-        if (newVal === "") {
+        if (!newVal) {
           return;
         }
-        scope.is_valid_key = glbcKeyLib.validPublicKey(newVal);
-        if (scope.is_valid_key) {
-          scope.key_details = pgpKeyDetails(newVal);
-        }
+
+        glbcKeyLib.validPublicKey(newVal).then(function(result) {
+          if (result) {
+            pgpKeyDetails(newVal).then(function(result) {
+              if (result) {
+                scope.key_details = result;
+              }
+            });
+          }
+        });
       });
     },
   };
@@ -272,24 +284,23 @@ directive('pgpPubkeyDisplay', ['pgp', 'glbcKeyLib', function(pgp, glbcKeyLib) {
 // containing form's ngModelController NOT the ngModel bound to the value of the
 // text-area itself. If the key word 'canBeEmpty' the pgp key validator is disabled
 // when the textarea's input is empty.
-directive('pgpPubkeyValidator', ['glbcKeyLib', function(glbcKeyLib) {
+directive('pgpPubkeyValidator', ['$q', 'glbcKeyLib', function($q, glbcKeyLib) {
   // scope is the directives scope
   // elem is a jqlite reference to the bound element
   // attrs is the list of directives on the element
   // ngModel is the model controller attached to the form
   function link(scope, elem, attrs, ngModel) {
-
     scope.canBeEmpty = scope.pgpPubkeyValidator === 'canBeEmpty';
 
     // modelValue is the models value, viewVal is displayed on the page.
-    ngModel.$validators.pgpPubKeyValidator = function(modelVal) {
+    ngModel.$asyncValidators.pgpPubKeyValidator = function(modelVal) {
       // Check for obvious problems.
       if (typeof modelVal !== 'string') {
         modelVal = '';
       }
 
       if (scope.canBeEmpty && modelVal === '') {
-        return true;
+        return $q.resolve(true);
       }
 
       return glbcKeyLib.validPublicKey(modelVal);
@@ -353,4 +364,13 @@ directive('releaseMsg', function() {
     restrict: 'A',
     templateUrl: 'views/admin/home/releasemsg.html',
   };
+}).
+directive('isolateClick', function() {
+  return {
+    link: function(scope, elem) {
+      elem.on('click', function(e){
+        e.stopPropagation();
+      });
+    }
+ };
 });

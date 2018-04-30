@@ -3,8 +3,7 @@ import time
 
 from twisted.internet import task, defer, reactor
 
-from globaleaks.state import State
-from globaleaks.utils import mailutils
+from globaleaks.state import State, extract_exception_traceback_and_schedule_email
 from globaleaks.utils.utility import log, is_common_net_error
 
 TRACK_LAST_N_EXECUTIONS = 10
@@ -95,7 +94,7 @@ class BaseJob(task.LoopingCall):
     def on_error(self, excep):
         log.err("Exception while running %s" % self.name)
         log.exception(excep)
-        mailutils.extract_exception_traceback_and_schedule_email(excep)
+        extract_exception_traceback_and_schedule_email(excep)
 
 
 class LoopingJob(BaseJob):
@@ -113,13 +112,13 @@ class LoopingJob(BaseJob):
                 (self.name, self.mean_time, self.low_time, self.high_time)
         log.err(error)
         log.exception(excep)
-        mailutils.extract_exception_traceback_and_schedule_email(excep)
+        extract_exception_traceback_and_schedule_email(excep)
 
 
 class NetLoopingJob(LoopingJob):
     def on_error(self, excep):
         """
-        Handles known errors that the twisted.web.client.Agent or txsocksx.http.SOCKS5Agent
+        Handles known errors that the twisted.web.client.Agent
         can throw while connecting through their respective networks.
         """
         if is_common_net_error(State.tenant_cache[1], excep):

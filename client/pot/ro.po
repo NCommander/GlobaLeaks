@@ -17,8 +17,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GlobaLeaks\n"
-"PO-Revision-Date: 2018-03-11 17:54+0000\n"
-"Last-Translator: pol polearnik <polearnik@mail.ru>\n"
+"PO-Revision-Date: 2018-04-08 11:12+0000\n"
+"Last-Translator: Hermes Center <info@hermescenter.org>\n"
 "Language-Team: Romanian (http://www.transifex.com/otf/globaleaks/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -212,9 +212,6 @@ msgstr "Export"
 msgid "Save all"
 msgstr "Salvează tot"
 
-msgid "This field is mandatory"
-msgstr "Acest câmp este obligatoriu "
-
 msgid ""
 "The connection used to send this submission has been secured with HTTPS "
 "ensuring confidentiality."
@@ -287,6 +284,9 @@ msgstr "Primul nume"
 
 msgid "Last name"
 msgstr "Numele de familie"
+
+msgid "Gender"
+msgstr "Gen"
 
 msgid "GENDER_OTHER"
 msgstr "GENDER_OTHER"
@@ -721,6 +721,15 @@ msgstr "Extinde"
 msgid "Select"
 msgstr "Selectare"
 
+msgid "Selected by default"
+msgstr ""
+
+msgid "Unselected by default"
+msgstr ""
+
+msgid "Surname"
+msgstr ""
+
 msgid "Select the context of your submission:"
 msgstr "Selectați contextul prezentării dumneavoastră:"
 
@@ -798,12 +807,6 @@ msgstr "Permite destinatarilor să acorde permisiuni pentru informatori postări
 msgid "Enable search engines indexing"
 msgstr "Activați motoarele de căutare de indexare"
 
-msgid "Enabled"
-msgstr "Activat"
-
-msgid "Search engine spiders will be allowed to index the application."
-msgstr "păianjeni motor de căutare va fi permis să indexeze cererea."
-
 msgid "Enable custom privacy panel"
 msgstr "Activați panoul de confidențialitate personalizat"
 
@@ -816,14 +819,14 @@ msgstr "Textul afișat când informatorul nu utilizează Tor"
 msgid "Disable the privacy panel"
 msgstr "Dezactiva panoul de confidențialitate"
 
-msgid "Security awareness panel title"
-msgstr "Securitate Titlul panoului de conștientizare"
+msgid "Enable disclaimer"
+msgstr ""
 
-msgid "Security awareness panel text"
-msgstr "Text Panoul de conștientizare de securitate"
+msgid "Title"
+msgstr "Titlu"
 
-msgid "Disable the security awareness panel questions"
-msgstr "Dezactivați întrebările panoul de conștientizare a securității"
+msgid "Text"
+msgstr "Text"
 
 msgid "Disable the security awareness panel"
 msgstr "Dezactiva panoul de conștientizare de securitate"
@@ -865,9 +868,6 @@ msgstr "Pagina de depunere"
 msgid "Title of the submission page"
 msgstr "Titlul paginii de depunere"
 
-msgid "Title of the attachments widget"
-msgstr "Titlul widget-ului atașamente"
-
 msgid "Text of prompt for whistleblowers to log in"
 msgstr "Mesajul de intampinare pentru autentificarea informatorului."
 
@@ -879,12 +879,6 @@ msgstr "Titlul paginii primire"
 
 msgid "Title of the submission status page"
 msgstr "Titlul paginii de stare depunere"
-
-msgid "Title of the comments widget"
-msgstr "Titlul comentarii widget-ului"
-
-msgid "Title of the messages widget"
-msgstr "Titlul widget-ului de mesaje"
 
 msgid "Size limit for file attachments"
 msgstr "Limita de dimensiune pentru fișierele atașate"
@@ -908,12 +902,6 @@ msgstr "Nume Utilizator"
 
 msgid "Password"
 msgstr "Parolă"
-
-msgid ""
-"This feature keeps regular people from visiting the platform while it is "
-"still under development and should not be used for security purposes. The "
-"input password is stored in plaintext on the server."
-msgstr "Această caracteristică ține oamenii obișnuiți să viziteze platforma în timp ce este încă în curs de dezvoltare și nu ar trebui să fie utilizate în scopuri de securitate. Parola de intrare este stocată în text clar pe server."
 
 msgid "Enable experimental features"
 msgstr "Activați funcțiile experimentale"
@@ -1011,6 +999,9 @@ msgstr "Editare"
 msgid "Cancel"
 msgstr "Anulează"
 
+msgid "This field is mandatory"
+msgstr "Acest câmp este obligatoriu "
+
 msgid "Questionnaire"
 msgstr "Chestionar"
 
@@ -1066,6 +1057,9 @@ msgstr ""
 
 msgid "Disabled"
 msgstr "invalid"
+
+msgid "Enabled"
+msgstr "Activat"
 
 msgid "Submission expiration, in days"
 msgstr "expirare de depunere, în zile"
@@ -1453,6 +1447,9 @@ msgstr "Titlul întrebării confirmarea asupra răspunsului negativ"
 msgid "Body of the confirmation question upon negative answer"
 msgstr "Corpul întrebării o confirmare asupra răspunsului negativ"
 
+msgid "Text of the final statement upon negative answer"
+msgstr ""
+
 msgid "Options"
 msgstr "Opțiuni"
 
@@ -1640,18 +1637,6 @@ msgstr "Acest lucru înseamnă că, în cazul în care serverul care rulează pl
 msgid "Are you sure that you wish to continue?"
 msgstr "Sunteți sigur că doriți să continuați?"
 
-msgid ""
-"Downloading a file with malicious content could compromise your computer or "
-"disclose your identity."
-msgstr "Descărcarea unui fișier ce are conținut malițios poate să vă compromită calculatorul sau să vă dezvăluie identitatea."
-
-msgid "The name of the file and its content can be intentionally misleading."
-msgstr "Numele fișierului și conținutul său poate fi în mod intenționat înșelătoare."
-
-msgid ""
-"Please review the following information and decide if you wish to proceed."
-msgstr "Verificați următoare informații și apoi decideți dacă doriți să continuați"
-
 msgid "Error!"
 msgstr "Eroare!"
 
@@ -1719,28 +1704,6 @@ msgstr "secunde"
 msgid "Size:"
 msgstr ""
 
-msgid "Which of the following statements is true?"
-msgstr "Care dintre următoarele afirmații este adevărată?"
-
-msgid "HTTPS protects my identity, but not the content of my submission"
-msgstr "HTTPS protejează identitatea mea, dar nu și conținutul adăugat"
-
-msgid "HTTPS protects the content of my submission but not my identity"
-msgstr "HTTPS protejează conținutul adăugat, dar nu și identitatea mea"
-
-msgid "HTTPS does not protect the content of my submission nor my identity"
-msgstr "HTTPS nu protejează conținutul adăugat și nici identitatea mea"
-
-msgid "HTTPS does protect both my identity and the content of my submission"
-msgstr "HTTPS protejeaza atât identitatea mea cât și conținutul adăugat"
-
-msgid ""
-"You are aware of the risks involved. Go ahead, but consider yourself warned."
-msgstr "Sunteți conștienți de riscurile implicate. Du-te înainte, dar consideră-te avertizat."
-
-msgid "Wrong Answer!"
-msgstr "Răspuns greșit!"
-
 msgid "The connection is not secure."
 msgstr ""
 
@@ -1760,9 +1723,6 @@ msgstr "Numele fișierului"
 
 msgid "Upload date"
 msgstr "Data de incarcare"
-
-msgid "Content Type"
-msgstr "Tipul de conținut"
 
 msgid "File size"
 msgstr "Mărime fișier"
@@ -1936,6 +1896,9 @@ msgstr "Accesul la identitatea informatorului a fost solicitată custode."
 msgid "Date of the request"
 msgstr "Data solicitării"
 
+msgid "Undeclared"
+msgstr ""
+
 msgid "Congratulations!"
 msgstr "Felicitări!"
 
@@ -1963,7 +1926,7 @@ msgstr ""
 msgid "Domain"
 msgstr "Domeniu"
 
-msgid "Use Case"
+msgid "Use case"
 msgstr ""
 
 msgid "Anticorruption"
@@ -1990,9 +1953,6 @@ msgstr ""
 msgid "Check your inbox to activate your account."
 msgstr ""
 
-msgid "The answer is too short."
-msgstr ""
-
 msgid "The specified input is not valid:"
 msgstr "Intrarea specificata nu este valabila:"
 
@@ -2001,6 +1961,12 @@ msgstr "Te rog introdu o adresa de email valida."
 
 msgid "please enter numbers only."
 msgstr "Te rog introdu numai numere."
+
+msgid "This field is mandatory."
+msgstr "Acest câmp este obligatoriu."
+
+msgid "The answer is too short."
+msgstr ""
 
 msgid "Recipient selection"
 msgstr "selecţia destinatarului"
@@ -2035,12 +2001,12 @@ msgid "The following steps have errors:"
 msgstr "Urmatorii pasi au erori:"
 
 msgid "Welcome!"
-msgstr ""
+msgstr "Bine ați venit!"
 
 msgid ""
 "The following step-by-step procedure will guide you through creating your "
 "whistleblowing platform."
-msgstr ""
+msgstr "Următorul pas cu pas expertul vă va ghida prin configurarea site-ului dvs. whistleblowing."
 
 msgid "Please choose a configuration profile:"
 msgstr ""
@@ -2086,11 +2052,17 @@ msgstr "Descrie-ti livrarea in detalii."
 msgid "Attach files relevant to the submission."
 msgstr "Atașa fișiere relevante pentru depunerea."
 
+msgid "Do you want to provide your identification information?"
+msgstr "Doriți să furnizați informațiile de identificare?"
+
 msgid "Dear {RecipientName},"
 msgstr "Buna {RecipientName},"
 
 msgid "Kind regards,"
 msgstr "Salutări calde,"
+
+msgid "Access instructions"
+msgstr ""
 
 msgid ""
 "The number of activities recently detected appears to be higher than usual."
@@ -2143,6 +2115,27 @@ msgstr "Fără o cheie PGP validă, sistemul nu va fi în măsură să le trimit
 
 msgid "PGP key expiration alert"
 msgstr "PGP Alertă cheie expirare"
+
+msgid "A new whistleblowing site has been registered."
+msgstr ""
+
+msgid "Registration data:"
+msgstr ""
+
+msgid "Site: {HTTPSUrl} "
+msgstr ""
+
+msgid "Name: {Name}"
+msgstr ""
+
+msgid "Email: {Email}"
+msgstr ""
+
+msgid "Use case: {UseCase}"
+msgstr ""
+
+msgid "New whistleblowing site registered"
+msgstr ""
 
 msgid ""
 "This is a test email sent out from the platform's administrative interface."
@@ -2293,6 +2286,9 @@ msgid "Notifications from {NodeName} have been temporarily suspended"
 msgstr "Notificări de la {NodeName} au fost temporar suspendate"
 
 msgid "Click the link to activate the platform:"
+msgstr ""
+
+msgid "Activation"
 msgstr ""
 
 msgid "A software update is available."

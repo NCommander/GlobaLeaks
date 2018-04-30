@@ -28,10 +28,10 @@ TmpFileMeta.prototype.waitForDownload = function() {
 TmpFileMeta.prototype.waitForDownloadAndVerifyCheckSum = function() {
   var self = this;
   browser.gl.utils.waitForFile(self.tmp_path).then(function() {
-      var tmp_sum = browser.gl.utils.checksum(fs.readFileSync(self.tmp_path));
-      expect(tmp_sum).toEqual(self.chksum);
-      // Remove the tmp file before moving on. (it could be used again)
-      fs.unlinkSync(self.tmp_path);
+    var tmp_sum = browser.gl.utils.checksum(fs.readFileSync(self.tmp_path));
+    expect(tmp_sum).toEqual(self.chksum);
+    // Remove the tmp file before moving on. (it could be used again)
+    fs.unlinkSync(self.tmp_path);
   });
 };
 
@@ -204,9 +204,6 @@ describe('Test file upload/download consistency', function() {
     browser.gl.utils.login_whistleblower(receipt);
     // Choose the first file which should be f1_info
     element(by.css('#AttachedWBFile #wbfile-0 div.download-button')).click();
-    browser.gl.utils.waitUntilPresent(by.css('#modal-action-ok')).then(function() {
-      element(by.css('#modal-action-ok')).click();
-      f1_info.waitForDownload();
-    });
+    f1_info.waitForDownload();
   });
 });

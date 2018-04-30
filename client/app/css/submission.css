@@ -206,8 +206,11 @@ html[dir="rtl"] #KeyCodeHintBox:after {
   color: #c7254e;
 }
 
+.red-text, .red-asterisk {
+  color: #a94442;
+}
+
 .red-asterisk {
-  color: red;
   vertical-align: super;
   font-size: smaller;
 }
@@ -218,10 +221,6 @@ html[dir="rtl"] #KeyCodeHintBox:after {
 
 .question-body {
   padding-bottom: 1.4em;
-}
-
-.nested-question {
-  font-size: 0.9em;
 }
 
 html[dir="ltr"] .question {
